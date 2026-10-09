@@ -62,3 +62,6 @@ news:
     - {name: STAT News Biotech, url: "https://www.statnews.com/category/biotech/feed/"}
     - {name: FDA Press Announcements, url: "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/press-releases/rss.xml"}
   existing_news_db_path: null                # biotech-intel has no database yet
+
+memos:
+  max_per_day: 5                             # cap on Claude memos per daily run (cost control)

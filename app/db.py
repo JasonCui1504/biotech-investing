@@ -182,11 +182,30 @@ CREATE TABLE IF NOT EXISTS recommendations (
     status TEXT DEFAULT 'open'   -- open, closed
 )"""
 
+CREATE_EVENT_REACTIONS = """
+CREATE TABLE IF NOT EXISTS event_reactions (
+    event_id INTEGER PRIMARY KEY,
+    ticker TEXT,
+    event_type TEXT,
+    event_date TEXT,
+    ret_1d REAL,
+    ret_5d REAL,
+    excess_1d REAL,              -- return minus the benchmark's return over the same window
+    excess_5d REAL
+)"""
+
+# Columns added after the first version. create_tables() adds them to older databases.
+EXTRA_COLUMNS = [
+    ("assets", "peak_sales_source", "TEXT"),                 # 'user_csv' when the user supplied it
+    ("assets", "peak_sales_claude_suggestion", "REAL"),      # LLM base-case guess, UNVERIFIED
+    ("assets", "peak_sales_claude_reasoning", "TEXT"),
+]
+
 ALL_TABLES = [
     CREATE_COMPANIES, CREATE_SPONSOR_ALIASES, CREATE_ASSETS, CREATE_TRIALS,
     CREATE_TRIAL_SNAPSHOTS, CREATE_FILINGS, CREATE_FINANCIALS, CREATE_PRICES,
     CREATE_NEWS_ITEMS, CREATE_EVENTS, CREATE_CATALYSTS, CREATE_CLAUDE_CACHE,
-    CREATE_CLAUDE_USAGE, CREATE_RECOMMENDATIONS,
+    CREATE_CLAUDE_USAGE, CREATE_RECOMMENDATIONS, CREATE_EVENT_REACTIONS,
 ]
 
 
@@ -212,6 +231,10 @@ def create_tables(db_path=None):
     conn = get_connection(db_path)
     for sql in ALL_TABLES:
         conn.execute(sql)
+    for table, column, column_type in EXTRA_COLUMNS:
+        existing = [row["name"] for row in conn.execute(f"PRAGMA table_info({table})")]
+        if column not in existing:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {column_type}")
     conn.commit()
     conn.close()
 

@@ -18,7 +18,7 @@ def test_create_tables_makes_every_table():
     names = [row["name"] for row in rows]
     for expected in ["companies", "prices", "events", "recommendations", "claude_cache"]:
         assert expected in names
-    assert len(ALL_TABLES) == 14
+    assert len(ALL_TABLES) == 15
 
 
 def test_create_tables_twice_is_safe():
@@ -67,3 +67,14 @@ def test_unique_event_key_blocks_duplicate_events():
     run_write(sql, ("SMMT", "2026-01-02", "news", "http://x"), db_path=path)
     run_write(sql, ("SMMT", "2026-01-02", "news", "http://x"), db_path=path)
     assert len(run_query("SELECT * FROM events", db_path=path)) == 1
+
+
+def test_new_columns_are_added_to_an_old_database():
+    path = make_temp_db_path()
+    conn = sqlite3.connect(path)
+    conn.execute("CREATE TABLE assets (asset_id INTEGER PRIMARY KEY, ticker TEXT)")  # old shape
+    conn.commit()
+    conn.close()
+    create_tables(path)
+    names = [row["name"] for row in run_query("PRAGMA table_info(assets)", db_path=path)]
+    assert "peak_sales_claude_suggestion" in names

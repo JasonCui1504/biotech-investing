@@ -7,9 +7,10 @@ Research tool only. It never places trades. Research tool output, not financial 
 |---|---|---|
 | 1 | config, db (14 tables), http utils, universe builder, prices | Prices live (XBI, IBB, 3 stocks). Universe pipeline live on a 15-ticker sample. |
 | 2 | `edgar.py`, `ctgov.py`, `screens.py` | Live on SMMT, ACAD, ABUS. ABUS cash bug found and fixed (stale XBRL tag). |
+| 4 | `rnpv.py`, `event_study.py`, `memo.py` | **Live test passed 2026-10-09**: rNPV with LLM peak-sales suggestions for ACAD/ABUS/KRYS, one cited ACAD memo. Awaiting your review. |
 | 3 | `claude_utils.py`, `extract.py`, `classify.py`, `news.py`, theme tagging | **Live smoke test passed 2026-10-09** (details below). Theme tagging not yet run. |
 
-50 tests pass (`python -m pytest`), none need network or keys.
+65 tests pass (`python -m pytest`), none need network or keys.
 
 ## Universe build: finished 2026-10-09
 - 4,459 common stocks -> 4,451 with an SEC CIK -> 567 in biotech SIC codes -> **228 pass the $300M-$10B market cap and $1M/day liquidity filters**.
@@ -28,6 +29,13 @@ Research tool only. It never places trades. Research tool output, not financial 
 - Bug fixed: catalysts with period precision (quarter/half/year) were treated as past once the period began; the calendar now compares against the period end.
 - Known issue: FierceBiotech and FiercePharma return 403 to this cloud server even with browser headers (IP blocked). Endpoints, STAT and FDA feeds work. Should work from your own computer.
 - Not yet tested live: theme tagging, `extract_press_release` on its own, 8-K path on a large batch.
+
+## Phase 4 (2026-10-09, total Claude spend so far about $0.55)
+- `rnpv.py`: assumptions listed at the top of the file. Low/base/high = 0.5x/1x/1.5x peak sales. Your numbers in `data/peak_sales_inputs.csv` (ticker, asset_name, peak_sales_usd, source_or_reasoning) override Claude's suggestions; suggestions are stored separately and always labeled "LLM suggestion, unverified". Run: `python -m app.analysis.rnpv --tickers ACAD,KRYS --suggest`.
+- `event_study.py`: works but only 3 events so far (n=2 mixed-data events), meaningless until months of history exist.
+- `memo.py`: `python -m app.analysis.memo --tickers ACAD`. Memo saved at `reports/memos/` (gitignored). Candidate filter and cap (5/day, `config.yaml` -> `memos`) apply when no tickers are given.
+- Known rNPV limitation: approved products use an LLM peak-sales guess, not their actual reported revenue, so a commercial company can look badly undervalued by the model (KRYS: rNPV about $0.6B vs EV about $8.6B). Treat the ratio as a rough screen only. Possible fix: use trailing revenue for approved assets.
+- Fact-sheet bug fixed: cash-flow-positive companies now say so instead of "burn $0M".
 
 ## Setup facts
 - SEC contact: `Jason Cui jasoncui1504@gmail.com` (in `.env` in the cloud container; set as an environment variable for new sessions).

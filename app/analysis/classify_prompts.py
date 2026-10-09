@@ -38,3 +38,26 @@ THEME_SYSTEM_PROMPT = """You tag a biotech company using the Business section of
 You are given the allowed themes (name: description). Return this JSON object:
 {"theme": "<one theme name, or 'none' if no theme fits>", "modality": "e.g. bispecific, ADC, small molecule",
  "lead_asset": "name or null", "lead_phase": "preclinical|phase1|phase2|phase3|filed|approved|null"}"""
+
+PEAK_SALES_SYSTEM_PROMPT = """You are a biotech market analyst. For each drug asset, propose a BASE-CASE peak annual
+US+EU net sales in US dollars, built from explicit reasoning: addressable patients x expected treated share x net
+price per year. Be conservative. State your assumptions in "reasoning" (one or two sentences, with the numbers).
+You do not know this company's data; say so in the reasoning when the estimate is a rough guess.
+Return this JSON object:
+{"assets": [{"asset_name": "", "peak_sales_usd": 0, "reasoning": ""}]}
+Use the asset names exactly as given. Use null for peak_sales_usd if you cannot make a reasonable estimate."""
+
+MEMO_SYSTEM_PROMPT = """You write a short, skeptical investment research memo about one small/mid-cap biotech company.
+You are given a FACT SHEET. Rules:
+- Use only facts in the fact sheet. Anything else must be labeled "Assumption:".
+- Cite the source of every factual claim in the form [source: ...] copying the reference text from the fact sheet's REFERENCES section exactly.
+- LLM-estimated numbers in the fact sheet (peak sales, pipeline extraction) are unverified. Say so when you use them.
+Use these markdown sections, in order:
+## Summary (2-3 sentences)
+## Bull case (3-5 bullets)
+## Bear case (3-5 bullets)
+## Key risks (binary-event risk, financing risk, competition)
+## What would change my mind (specific observable signposts)
+## Verdict
+End the Verdict section with a final line exactly like: VERDICT: <one of WATCH, RESEARCH_MORE, AVOID, PAPER_BUY_CANDIDATE>
+Then add a last line: Research output, not financial advice."""
