@@ -11,12 +11,14 @@ Research tool only. It never places trades. Research tool output, not financial 
 
 49 tests pass (`python -m pytest`), none need network or keys.
 
-## In progress when you left
-Full universe refresh (`python -m app.ingest.universe --refresh`), then prices for everything that passes.
-- 4,459 common stocks, 4,451 with an SEC CIK, **567 in biotech SIC codes**.
-- It was on the last step (Yahoo market-cap and liquidity filter), slowed by a Yahoo rate limit.
-- The result lives in the cloud container's `data/biotech.db`, which is NOT in git. If the container is reclaimed, rerun the command (about 15 minutes; SIC codes are cached in `data/sic_cache.json`, also not in git).
-- Results will be appended below if I am still running when it finishes.
+## Universe build: finished 2026-10-09
+- 4,459 common stocks -> 4,451 with an SEC CIK -> 567 in biotech SIC codes -> **228 pass the $300M-$10B market cap and $1M/day liquidity filters**.
+- Prices loaded: 53,343 rows for 230 tickers (228 companies + XBI + IBB), about a year each.
+- Snapshot saved in git: `data/universe_snapshot.csv` (the database itself is not in git).
+- Largest: KRYS, PCVX, PTGX, KYMR, AXSM (about $9-10B). Smallest: CYPH, BNTC, PRLD, INDP, SRZN (about $300M).
+- Not in the list: SMMT (market cap about $13.7B, above the ceiling, expected) and RVMD (not checked why; look up its market cap or status).
+- No themes tagged yet (needs the Claude step: `python -m app.ingest.universe --tag-themes`, after running edgar for filings).
+- Some companies may be missing because Yahoo failed or rate-limited (HTTP 429 seen once). Compare against a few names you know.
 
 ## Setup facts
 - SEC contact: `Jason Cui jasoncui1504@gmail.com` (in `.env` in the cloud container; set as an environment variable for new sessions).
