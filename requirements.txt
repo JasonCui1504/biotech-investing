@@ -1,0 +1,9 @@
+requests
+pandas
+yfinance
+anthropic
+feedparser
+python-dotenv
+pyyaml
+rapidfuzz
+pytest

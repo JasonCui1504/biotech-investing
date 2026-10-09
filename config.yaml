@@ -1,0 +1,64 @@
+database_path: data/biotech.db
+
+universe:
+  market_cap_min_usd: 300000000        # $300M
+  market_cap_max_usd: 10000000000      # $10B
+  min_avg_daily_dollar_volume: 1000000 # liquidity floor
+  sic_codes: [2834, 2836, 8731]        # pharma preps, biologics, commercial biological research
+  exchanges: [NASDAQ, NYSE]
+  themes:                              # USER EDITS THIS
+    - name: oncology_bispecifics_adc_radiopharma
+      description: "Oncology: bispecific antibodies, antibody-drug conjugates, radiopharmaceuticals"
+    - name: neuropsychiatry
+      description: "Neuropsychiatry: psychiatric and neurological disease therapeutics (depression, schizophrenia, epilepsy, neurodegeneration)"
+    - name: genetic_medicine
+      description: "Genetic medicine: gene therapy, gene editing, RNA therapeutics, cell therapy"
+
+claude:
+  model_fast: claude-haiku-5-5
+  model_smart: claude-sonnet-5-5
+  max_tokens_default: 2000
+  daily_budget_usd: 5.00               # stop making Claude calls past this and warn
+
+benchmark_ticker: XBI
+extra_price_tickers: [IBB]
+
+# Probability of reaching approval from each stage (editable priors, approximate
+# industry-wide base rates; oncology is typically lower than the overall average).
+# APPROXIMATE. Sources are listed in the README.
+pos_by_phase:
+  default:
+    preclinical: 0.05
+    phase1: 0.08
+    phase2: 0.15
+    phase3: 0.55
+    filed: 0.90
+  oncology:
+    preclinical: 0.03
+    phase1: 0.05
+    phase2: 0.10
+    phase3: 0.45
+    filed: 0.88
+
+rnpv:
+  discount_rate: 0.12
+  years_to_launch_by_phase:
+    preclinical: 8
+    phase1: 6
+    phase2: 4
+    phase3: 2
+    filed: 1
+
+screens:
+  min_runway_months_ok: 18
+  runway_warning_months: 12
+  max_position_pct_of_portfolio: 5          # used in report guidance only
+
+news:
+  rss_feeds:                                 # same feeds as your biotech-intel tool
+    - {name: Endpoints News, url: "https://endpoints.news/feed/"}
+    - {name: FierceBiotech, url: "https://www.fiercebiotech.com/rss/xml"}
+    - {name: FiercePharma, url: "https://www.fiercepharma.com/rss/xml"}
+    - {name: STAT News Biotech, url: "https://www.statnews.com/category/biotech/feed/"}
+    - {name: FDA Press Announcements, url: "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/press-releases/rss.xml"}
+  existing_news_db_path: null                # biotech-intel has no database yet
