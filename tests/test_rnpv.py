@@ -1,5 +1,5 @@
 """Hand-computed rNPV examples (no database or network)."""
-from app.analysis.rnpv import compute_rnpv, detect_area
+from app.analysis.rnpv import compute_commercial_value, compute_rnpv, detect_area
 
 POS = {"default": {"phase2": 0.15, "phase3": 0.55, "filed": 0.90},
        "oncology": {"phase2": 0.10, "phase3": 0.45, "filed": 0.88}}
@@ -46,3 +46,10 @@ def test_unknown_phase_is_skipped_and_area_detection():
     assert detect_area("Non-small cell lung cancer", None) == "oncology"
     assert detect_area("Rett syndrome", "oncology_bispecifics_adc_radiopharma") == "oncology"
     assert detect_area("Rett syndrome", "neuropsychiatry") == "default"
+
+
+def test_commercial_value_from_revenue():
+    # $100M trailing revenue * 30% margin * 8 = $240M
+    assert compute_commercial_value(100e6) == 240e6
+    assert compute_commercial_value(None) == 0.0
+    assert compute_commercial_value(-5) == 0.0

@@ -285,7 +285,42 @@ def run_trial_diff(today):
     return event_count
 
 
-# --------------------------------------------------------------------- CLI
+# --------------------------------------------------------------------- runner
+
+def run_ctgov(companies, refresh_aliases=True):
+    """Full ClinicalTrials.gov step for a list of company rows; returns a summary dict.
+
+    Searches aliases (optional), refreshes trials, takes today's snapshot, and diffs it.
+    """
+    matched_all, review_all = [], []
+    if refresh_aliases:
+        for company in companies:
+            try:
+                matched, unmatched = build_aliases(company["ticker"], company["name"])
+                matched_all.extend(matched)
+                review_all.extend(unmatched)
+            except Exception as error:  # one bad ticker must never stop the run
+                log.error("%s: alias search failed (%s)", company["ticker"], error)
+        save_aliases(matched_all, review_all)
+    trial_count = 0
+    for company in companies:
+        try:
+            trial_count += fetch_trials_for_ticker(company["ticker"])
+        except Exception as error:
+            log.error("%s: trial fetch failed (%s)", company["ticker"], error)
+    today_text = date.today().isoformat()
+    take_snapshots(today_text)
+    return {"trials": trial_count, "events": run_trial_diff(today_text)}
+
+
+def get_companies_for_args(tickers_arg):
+    """Company rows (ticker, name) for ALL universe companies or a comma list."""
+    if tickers_arg == "ALL":
+        return run_query("SELECT ticker, name FROM companies WHERE in_universe = 1")
+    wanted = tickers_arg.split(",")
+    marks = ",".join("?" * len(wanted))
+    return run_query(f"SELECT ticker, name FROM companies WHERE ticker IN ({marks})", wanted)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Refresh ClinicalTrials.gov data.")
@@ -294,29 +329,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     setup_logging()
     create_tables()
-    if args.tickers == "ALL":
-        companies = run_query("SELECT ticker, name FROM companies WHERE in_universe = 1")
-    else:
-        marks = ",".join("?" * len(args.tickers.split(",")))
-        companies = run_query(f"SELECT ticker, name FROM companies WHERE ticker IN ({marks})",
-                              args.tickers.split(","))
-    all_matched, all_review = [], []
-    for company in companies:
-        try:
-            if not args.skip_aliases:
-                matched, unmatched = build_aliases(company["ticker"], company["name"])
-                all_matched.extend(matched)
-                all_review.extend(unmatched)
-        except Exception as error:
-            log.error("%s: alias search failed (%s)", company["ticker"], error)
-    if not args.skip_aliases:
-        save_aliases(all_matched, all_review)
-    for company in companies:
-        try:
-            count = fetch_trials_for_ticker(company["ticker"])
-            print(f"{company['ticker']}: {count} trials")
-        except Exception as error:
-            log.error("%s: trial fetch failed (%s)", company["ticker"], error)
-    today_text = date.today().isoformat()
-    take_snapshots(today_text)
-    print(f"Trial-change events today: {run_trial_diff(today_text)}")
+    summary = run_ctgov(get_companies_for_args(args.tickers), refresh_aliases=not args.skip_aliases)
+    print(f"Trials saved: {summary['trials']}; trial-change events today: {summary['events']}")

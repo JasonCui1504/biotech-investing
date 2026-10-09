@@ -65,3 +65,16 @@ news:
 
 memos:
   max_per_day: 5                             # cap on Claude memos per daily run (cost control)
+
+tracking:
+  starting_capital_usd: 100000
+
+watchlist_score_weights:                     # points added/removed in the daily brief ranking
+  catalyst_in_window: 2
+  low_ev_to_cash: 2
+  healthy_runway: 1
+  rnpv_above_1: 2
+  recent_insider_buying: 0                   # Form 4 parsing not built yet
+  runway_danger: -3
+  large_dilution: -2                         # share count up more than 20% in a year
+  negative_trial_change: -2                  # trial change with materiality >= 4 in 30 days

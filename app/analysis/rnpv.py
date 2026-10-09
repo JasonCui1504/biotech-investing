@@ -10,7 +10,10 @@ ASSUMPTIONS (edit these; this is a rough ranking and sanity-check tool, NOT a pr
   4. Value at launch = annual profit at peak x COMMERCIAL_MULTIPLE (8), a crude stand-in
      for roughly ten years of declining sales after launch.
   5. rNPV = probability x value at launch / (1 + discount rate) ^ years to launch.
-  6. Approved assets: probability 1, launch year 0 (they are already selling).
+  6. Approved assets are NOT valued from guessed peak sales. Instead the company's
+     trailing-four-quarter revenue is valued the same way (revenue x margin x multiple,
+     probability 1, no discount). A peak-sales number YOU enter for an approved asset
+     replaces this for that asset only if you also leave revenue out of it (avoid double counting).
   7. No costs of development, no financing, no competition: those are NOT modeled.
   8. Peak sales is the weakest input. It comes from YOUR csv (data/peak_sales_inputs.csv)
      or, failing that, an unverified Claude suggestion. Reports always show which.
@@ -78,6 +81,22 @@ def compute_rnpv(assets, discount_rate, pos_table, years_to_launch_table):
     return total, breakdown
 
 
+def compute_commercial_value(trailing_revenue):
+    """Value of already-selling products: revenue x margin x multiple (certain, undiscounted)."""
+    if not trailing_revenue or trailing_revenue <= 0:
+        return 0.0
+    return trailing_revenue * PROFIT_MARGIN * COMMERCIAL_MULTIPLE
+
+
+def get_trailing_revenue(ticker):
+    """Sum of revenue over the latest four reported quarters, or None if fewer than four."""
+    rows = run_query("SELECT revenue FROM financials WHERE ticker = ? AND revenue IS NOT NULL "
+                     "ORDER BY period_end DESC LIMIT 4", (ticker,))
+    if len(rows) < 4:
+        return None
+    return sum(r["revenue"] for r in rows)
+
+
 # ------------------------------------------------------------- peak-sales inputs
 
 def load_peak_sales_csv():
@@ -108,7 +127,7 @@ def suggest_peak_sales(ticker):
     rows = run_query(
         "SELECT asset_name, mechanism, indication, phase FROM assets WHERE ticker = ? "
         "AND peak_sales_estimate_usd IS NULL AND peak_sales_claude_suggestion IS NULL "
-        "AND phase IN ('phase1','phase2','phase3','filed','approved') LIMIT ?",
+        "AND phase IN ('phase1','phase2','phase3','filed') LIMIT ?",
         (ticker, MAX_ASSETS_PER_COMPANY))
     if not rows:
         return 0
@@ -147,6 +166,8 @@ def get_company_assets(ticker):
             peak, source = row["peak_sales_claude_suggestion"], "LLM suggestion, unverified"
         else:
             peak, source = None, None
+        if row["phase"] == "approved" and source != "user":
+            peak, source = None, None  # valued from reported revenue instead (see compute_commercial_value)
         assets.append({"name": row["asset_name"], "phase": row["phase"], "peak_sales_usd": peak,
                        "source": source, "area": detect_area(row["indication"], theme)})
     return assets
@@ -166,14 +187,18 @@ def rnpv_vs_ev(ticker):
     cash = get_latest_value(ticker, "cash_and_investments")
     debt = get_latest_value(ticker, "total_debt") or 0
     valued = [a for a in assets if a["peak_sales_usd"]]
-    if not valued:
+    has_approved = any(a["phase"] == "approved" for a in assets)
+    commercial = compute_commercial_value(get_trailing_revenue(ticker)) if has_approved else 0.0
+    if not valued and not commercial:
         return None
     result = {"ticker": ticker, "ev_usd": ev, "assets_valued": len(valued), "assets_total": len(assets),
-              "llm_share_pct": 100 * sum(a["source"] != "user" for a in valued) / len(valued)}
+              "commercial_value_usd": commercial,
+              "llm_share_pct": 100 * sum(a["source"] != "user" for a in valued) / max(len(valued), 1)}
     for case, multiplier in CASES.items():
         scaled = [dict(a, peak_sales_usd=a["peak_sales_usd"] * multiplier) for a in valued]
         total, _ = compute_rnpv(scaled, config["rnpv"]["discount_rate"], config["pos_by_phase"],
                                 config["rnpv"]["years_to_launch_by_phase"])
+        total += commercial  # reported-revenue value is not scaled by the peak-sales cases
         result[f"rnpv_{case}_usd"] = total
         result[f"ratio_{case}"] = total / ev if ev and ev > 0 else None
         if cash is not None and market_cap:
@@ -200,4 +225,5 @@ if __name__ == "__main__":
         print(f"{item}: EV ${(out['ev_usd'] or 0) / 1e6:,.0f}M | rNPV low/base/high "
               f"${out['rnpv_low_usd'] / 1e6:,.0f}M / ${out['rnpv_base_usd'] / 1e6:,.0f}M / "
               f"${out['rnpv_high_usd'] / 1e6:,.0f}M | {out['assets_valued']}/{out['assets_total']} "
-              f"assets valued, {out['llm_share_pct']:.0f}% from unverified LLM suggestions")
+              f"pipeline assets valued, {out['llm_share_pct']:.0f}% from unverified LLM suggestions; "
+              f"marketed products (reported revenue): ${out['commercial_value_usd'] / 1e6:,.0f}M")

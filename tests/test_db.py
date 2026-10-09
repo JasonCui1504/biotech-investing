@@ -18,7 +18,7 @@ def test_create_tables_makes_every_table():
     names = [row["name"] for row in rows]
     for expected in ["companies", "prices", "events", "recommendations", "claude_cache"]:
         assert expected in names
-    assert len(ALL_TABLES) == 15
+    assert len(ALL_TABLES) == 16
 
 
 def test_create_tables_twice_is_safe():

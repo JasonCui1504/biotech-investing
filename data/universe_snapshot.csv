@@ -1,229 +1,229 @@
-ticker,name,cik,exchange,sic_code,market_cap_usd,avg_daily_dollar_volume,last_updated
-ABSI,Absci Corporation - Common Stock,0001672688,NASDAQ,8731,1534229177.0,31040376.0,2026-10-09
-ABUS,Arbutus Biopharma Corporation - Common Stock,0001447028,NASDAQ,2834,640693265.0,19575721.0,2026-10-09
-ACAD,ACADIA Pharmaceuticals Inc. - Common Stock,0001070494,NASDAQ,2834,3373742029.0,36131816.0,2026-10-09
-ACRS,"Aclaris Therapeutics, Inc. - Common Stock",0001557746,NASDAQ,2834,557883799.0,9781160.0,2026-10-09
-ADMA,ADMA Biologics Inc - Common Stock,0001368514,NASDAQ,2836,2313761727.0,27405314.0,2026-10-09
-ADPT,Adaptive Biotechnologies Corporation - Common Stock,0001478320,NASDAQ,2836,4163855542.0,62219380.0,2026-10-09
-ADRX,"ADARx Pharmaceuticals, Inc. - Common stock",0001802369,NASDAQ,2834,1888247459.0,22065171.0,2026-10-09
-AGEN,Agenus Inc. - Common Stock,0001098972,NASDAQ,2836,340520845.0,31734420.0,2026-10-09
-AGIO,"Agios Pharmaceuticals, Inc. - Common Stock",0001439222,NASDAQ,2834,1905684078.0,34083729.0,2026-10-09
-AKTS,"Aktis Oncology, Inc. - Common stock",0002035832,NASDAQ,2834,986689900.0,6495341.0,2026-10-09
-ALKS,Alkermes plc - Ordinary Shares,0001520262,NASDAQ,2834,6728984942.0,74306022.0,2026-10-09
-ALLO,"Allogene Therapeutics, Inc. - Common Stock",0001737287,NASDAQ,2836,483687225.0,7956082.0,2026-10-09
-ALMS,Alumis Inc. - Common Stock,0001847367,NASDAQ,2834,902163589.0,17002130.0,2026-10-09
-ALT,"Altimmune, Inc. - Common Stock",0001326190,NASDAQ,2834,505746004.0,10899181.0,2026-10-09
-ALVO,Alvotech - Ordinary Shares,0001898416,NASDAQ,2836,2023152633.0,5893353.0,2026-10-09
-AMLX,"Amylyx Pharmaceuticals, Inc. - Common Stock",0001658551,NASDAQ,2834,3413955001.0,63367869.0,2026-10-09
-AMPH,"Amphastar Pharmaceuticals, Inc. - Common Stock",0001297184,NASDAQ,2834,1097904312.0,12178603.0,2026-10-09
-AMRX,"Amneal Pharmaceuticals, Inc. - Class A Common Stock",0001723128,NASDAQ,2834,6844016798.0,44755822.0,2026-10-09
-ANAB,"AnaptysBio, Inc. - Common Stock",0001370053,NASDAQ,2834,1381459198.0,26024686.0,2026-10-09
-ANIP,"ANI Pharmaceuticals, Inc. - Common Stock",0001023024,NASDAQ,2834,1653406014.0,26869343.0,2026-10-09
-ANNX,"Annexon, Inc. - common stock",0001528115,NASDAQ,2834,758316536.0,12441600.0,2026-10-09
-ANRO,"Alto Neuroscience, Inc. Common Stock",0001999480,NYSE,2834,942987786.0,12930159.0,2026-10-09
-APMD,"Apnimed, Inc. - Common Stock",0001745648,NASDAQ,2834,758512765.0,10058660.0,2026-10-09
-AQST,"Aquestive Therapeutics, Inc. - Common Stock",0001398733,NASDAQ,2834,597222892.0,12624534.0,2026-10-09
-ARCT,Arcturus Therapeutics Holdings Inc. - Common Stock,0001768224,NASDAQ,2834,365804895.0,12027530.0,2026-10-09
-ARDX,"Ardelyx, Inc. - Common Stock",0001437402,NASDAQ,2834,844273356.0,13526433.0,2026-10-09
-ARQT,"Arcutis Biotherapeutics, Inc. - Common stock",0001787306,NASDAQ,2834,3078196096.0,54393490.0,2026-10-09
-ARTV,"Artiva Biotherapeutics, Inc. - Common Stock",0001817241,NASDAQ,2836,332452832.0,2729296.0,2026-10-09
-ARVN,"Arvinas, Inc. - Common Stock",0001655759,NASDAQ,2834,484554212.0,5881111.0,2026-10-09
-ARWR,"Arrowhead Pharmaceuticals, Inc. - Common Stock",0000879407,NASDAQ,2834,8579796563.0,115410255.0,2026-10-09
-ASMB,"Assembly Biosciences, Inc. - Common Stock",0001426800,NASDAQ,2834,464628795.0,6349254.0,2026-10-09
-ATTO,"Attovia Therapeutics, Inc. - Common Stock",0002058707,NASDAQ,2836,744572059.0,7459688.0,2026-10-09
-AURA,"Aura Biosciences, Inc. - Common Stock",0001501796,NASDAQ,2836,674599794.0,4911724.0,2026-10-09
-AVBP,"ArriVent BioPharma, Inc. - Common Stock",0001868279,NASDAQ,2834,823932106.0,15058583.0,2026-10-09
-AVIR,"Atea Pharmaceuticals, Inc. - common stock",0001593899,NASDAQ,2834,412539712.0,1542340.0,2026-10-09
-AVLN,Avalyn Pharma Inc. - common stock,0001540171,NASDAQ,2834,1140247173.0,6295999.0,2026-10-09
-AVTX,"Avalo Therapeutics, Inc. - Common Stock",0001534120,NASDAQ,2834,720250769.0,12451464.0,2026-10-09
-AXSM,"Axsome Therapeutics, Inc. - Common Stock",0001579428,NASDAQ,2834,8908929621.0,120911574.0,2026-10-09
-BCAX,Bicara Therapeutics Inc. - Common Stock,0002023658,NASDAQ,2834,1134048742.0,10707276.0,2026-10-09
-BCRX,"BioCryst Pharmaceuticals, Inc. - Common Stock",0000882796,NASDAQ,2836,2118386011.0,34203487.0,2026-10-09
-BEAM,Beam Therapeutics Inc. - Common Stock,0001745999,NASDAQ,2836,2540876598.0,47321569.0,2026-10-09
-BHC,Bausch Health Companies Inc. Common Stock,0000885590,NYSE,2834,2258902974.0,19395889.0,2026-10-09
-BLSM,"BlossomHill Therapeutics, Inc. - Common Stock",0001839970,NASDAQ,2834,536529237.0,4409512.0,2026-10-09
-BNTC,Benitec Biopharma Inc. - Common Stock,0001808898,NASDAQ,2834,305223853.0,1341839.0,2026-10-09
-BRVE,"Braveheart Bio, Inc. - Common Stock",0002131524,NASDAQ,2834,1718843932.0,10659512.0,2026-10-09
-CABA,"Cabaletta Bio, Inc. - Common Stock",0001759138,NASDAQ,2836,330613626.0,9150024.0,2026-10-09
-CADL,"Candel Therapeutics, Inc. - Common Stock",0001841387,NASDAQ,2836,707790498.0,11651979.0,2026-10-09
-CAPR,"Capricor Therapeutics, Inc. - Common Stock",0001133869,NASDAQ,2834,465693315.0,54333914.0,2026-10-09
-CBIO,"Crescent Biopharma, Inc. - Common Stock",0001253689,NASDAQ,2834,524513235.0,5592861.0,2026-10-09
-CCCC,"C4 Therapeutics, Inc. - Common Stock",0001662579,NASDAQ,2836,350621626.0,6812275.0,2026-10-09
-CGEM,"Cullinan Therapeutics, Inc. - Common Stock",0001789972,NASDAQ,2836,950141394.0,13530221.0,2026-10-09
-CGON,"CG Oncology, Inc. - Common stock",0001991792,NASDAQ,2836,5607389974.0,56170007.0,2026-10-09
-CLYM,"Climb Bio, Inc. - Common Stock",0001768446,NASDAQ,2834,623757710.0,14905817.0,2026-10-09
-COAG,"Hemab Therapeutics Holdings, Inc. - Common Stock",0002114044,NASDAQ,2836,1442937266.0,14100358.0,2026-10-09
-COGT,"Cogent Biosciences, Inc. - Common Stock",0001622229,NASDAQ,2834,5219631445.0,58069049.0,2026-10-09
-COLL,"Collegium Pharmaceutical, Inc. - Common Stock",0001267565,NASDAQ,2834,719804623.0,16471508.0,2026-10-09
-CRMD,CorMedix Inc. - Common Stock,0001410098,NASDAQ,2834,574267856.0,7760606.0,2026-10-09
-CRVS,"Corvus Pharmaceuticals, Inc. - Common Stock",0001626971,NASDAQ,2834,858874841.0,10080313.0,2026-10-09
-CTMX,"CytomX Therapeutics, Inc. - Common Stock",0001501989,NASDAQ,2834,538211238.0,8296520.0,2026-10-09
-CTNM,"Contineum Therapeutics, Inc. - Common stock",0001855175,NASDAQ,2834,495846531.0,6764174.0,2026-10-09
-CYPH,Cypherpunk Technologies Inc. - Common Stock,0001509745,NASDAQ,2834,302817907.0,27958210.0,2026-10-09
-CYRX,"CryoPort, Inc. - Common Stock",0001124524,NASDAQ,2834,855969771.0,10840674.0,2026-10-09
-CYTK,"Cytokinetics, Incorporated - Common Stock",0001061983,NASDAQ,2834,8620841917.0,121904216.0,2026-10-09
-DMAC,DiaMedica Therapeutics Inc. - Common Stock,0001401040,NASDAQ,2834,431944845.0,1421118.0,2026-10-09
-DMRA,"Damora Therapeutics, Inc. - Ordinary Shares",0001800315,NASDAQ,2834,1269282238.0,11035929.0,2026-10-09
-DNA,"Ginkgo Bioworks Holdings, Inc. Class A Common Stock",0001830214,NYSE,2836,763638751.0,20267699.0,2026-10-09
-DNLI,Denali Therapeutics Inc. - Common Stock,0001714899,NASDAQ,2836,2984351026.0,30244019.0,2026-10-09
-DNTH,"Dianthus Therapeutics, Inc. - Common Stock",0001690585,NASDAQ,2834,4610670796.0,67924793.0,2026-10-09
-DSGN,"Design Therapeutics, Inc. - Common Stock",0001807120,NASDAQ,2834,719063156.0,6947681.0,2026-10-09
-DYN,"Dyne Therapeutics, Inc. - Common Stock",0001818794,NASDAQ,2834,3057039232.0,46363231.0,2026-10-09
-EBS,Emergent BioSolutions Inc. Common Stock,0001367644,NYSE,2834,349171415.0,7914235.0,2026-10-09
-EDIT,"Editas Medicine, Inc. - Common Stock",0001650664,NASDAQ,2836,436167286.0,7180122.0,2026-10-09
-EIKN,"Eikon Therapeutics, Inc. - Common Stock",0001861123,NASDAQ,2836,406237725.0,3735975.0,2026-10-09
-ELVN,"Enliven Therapeutics, Inc.  - Common Stock",0001672619,NASDAQ,2834,2976991098.0,45797325.0,2026-10-09
-ENTA,"Enanta Pharmaceuticals, Inc. - Common Stock",0001177648,NASDAQ,2834,351848409.0,2752109.0,2026-10-09
-ENTX,Entera Bio Ltd. - Ordinary Shares,0001638097,NASDAQ,2836,434585678.0,4493938.0,2026-10-09
-EOLS,"Evolus, Inc. - Common Stock",0001570562,NASDAQ,2834,515193445.0,7015796.0,2026-10-09
-EPRX,Eupraxia Pharmaceuticals Inc. - Common Stock,0001581178,NASDAQ,2834,500175445.0,4307421.0,2026-10-09
-ERAS,"Erasca, Inc. - Common Stock",0001761918,NASDAQ,2834,5407321074.0,67479344.0,2026-10-09
-ETON,"Eton Pharmaceuticals, Inc. - Common Stock",0001710340,NASDAQ,2834,1564926641.0,33129389.0,2026-10-09
-ETRA,"Electra Therapeutics, Inc. - Common stock",0002088082,NASDAQ,2836,573689990.0,8343294.0,2026-10-09
-EWTX,"Edgewise Therapeutics, Inc. - Common Stock",0001710072,NASDAQ,2834,4260539931.0,52871094.0,2026-10-09
-FDMT,"4D Molecular Therapeutics, Inc. - Common Stock",0001650648,NASDAQ,2836,701601469.0,11714607.0,2026-10-09
-FENC,Fennec Pharmaceuticals Inc. - Common Stock,0001211583,NASDAQ,2836,372763904.0,2037558.0,2026-10-09
-FTH,"Faeth Therapeutics, Inc.  - Common Stock",0001829802,NASDAQ,2834,660193906.0,9009496.0,2026-10-09
-GALT,Galectin Therapeutics Inc. - Common Stock,0001133416,NASDAQ,2834,367092715.0,1397563.0,2026-10-09
-GENB,"Generate Biomedicines, Inc. - Common Stock",0002100782,NASDAQ,2834,1795650550.0,14513366.0,2026-10-09
-GERN,Geron Corporation - Common Stock,0000886744,NASDAQ,2834,783817577.0,12312521.0,2026-10-09
-GHRS,GH Research PLC - Ordinary Shares,0001855129,NASDAQ,2834,1403734822.0,6082771.0,2026-10-09
-GLUE,"Monte Rosa Therapeutics, Inc. - Common Stock",0001826457,NASDAQ,2836,880434272.0,13657240.0,2026-10-09
-HELP,Helus Pharma Inc.  - Common Stock,0001833141,NASDAQ,2834,783306860.0,18986879.0,2026-10-09
-HRMY,"Harmony Biosciences Holdings, Inc. - Common Stock",0001802665,NASDAQ,2834,2306161074.0,35171729.0,2026-10-09
-HROW,"Harrow, Inc. - Common Stock",0001360214,NASDAQ,2834,1144129199.0,16948122.0,2026-10-09
-IDYA,"IDEAYA Biosciences, Inc. - Common Stock",0001676725,NASDAQ,2834,3479410926.0,28209595.0,2026-10-09
-IMMX,"Immix Biopharma, Inc. - Common Stock",0001873835,NASDAQ,2834,770168412.0,15256688.0,2026-10-09
-IMNM,"Immunome, Inc. - Common Stock",0001472012,NASDAQ,2834,2278640107.0,23255940.0,2026-10-09
-IMTX,Immatics N.V. - Ordinary Shares,0001809196,NASDAQ,2836,1121898800.0,4386757.0,2026-10-09
-IMVT,"Immunovant, Inc.  - Common Stock",0001764013,NASDAQ,2836,6250284205.0,37307433.0,2026-10-09
-INBX,"Inhibrx Biosciences, Inc. - Common Stock",0002007919,NASDAQ,2836,1365210173.0,26960045.0,2026-10-09
-INDP,"Indaptus Therapeutics, Inc. - Common Stock",0001857044,NASDAQ,2834,315784293.0,1953316.0,2026-10-09
-INDV,"Indivior Pharmaceuticals, Inc.  - Common Stock",0001625297,NASDAQ,2834,4184232150.0,73279654.0,2026-10-09
-INVA,"Innoviva, Inc. - Common Stock",0001080014,NASDAQ,2834,1507763333.0,17045928.0,2026-10-09
-IONS,"Ionis Pharmaceuticals, Inc. - Common Stock",0000874015,NASDAQ,2834,7195781016.0,163369598.0,2026-10-09
-IOVA,"Iovance Biotherapeutics, Inc. - Common Stock",0001425205,NASDAQ,2836,6029049950.0,236316329.0,2026-10-09
-IRD,"Opus Genetics, Inc. - Common Stock",0001228627,NASDAQ,2834,371053374.0,10487949.0,2026-10-09
-IRON,"Disc Medicine, Inc. - Common Stock",0001816736,NASDAQ,2834,2333133147.0,28479010.0,2026-10-09
-IRWD,"Ironwood Pharmaceuticals, Inc. - Class A Common Stock",0001446847,NASDAQ,2834,639478576.0,7885047.0,2026-10-09
-JANX,"Janux Therapeutics, Inc. - Common Stock",0001817713,NASDAQ,2834,1131030301.0,15666189.0,2026-10-09
-JBIO,"Jade Biosciences, Inc. - Common Stock",0001798749,NASDAQ,2834,899903002.0,12743957.0,2026-10-09
-KARD,"Kardigan, Inc. - Common Stock",0002123613,NASDAQ,2834,1327752508.0,6870698.0,2026-10-09
-KLRA,"Kailera Therapeutics, Inc. - Common stock",0002096997,NASDAQ,2834,1296436760.0,8585600.0,2026-10-09
-KNSA,"Kiniksa Pharmaceuticals International, plc - Class A Ordinary Shares",0001730430,NASDAQ,2834,6144391024.0,45390476.0,2026-10-09
-KOD,Kodiak Sciences Inc - Common Stock,0001468748,NASDAQ,2836,5924189951.0,147322068.0,2026-10-09
-KRSA,"Korsana Biosciences, Inc. - Common Stock",0001755237,NASDAQ,2834,1526093075.0,1065484.0,2026-10-09
-KRYS,"Krystal Biotech, Inc. - Common Stock",0001711279,NASDAQ,2836,9687698661.0,124076152.0,2026-10-09
-KURA,"Kura Oncology, Inc. - Common Stock",0001422143,NASDAQ,2834,935865753.0,18579657.0,2026-10-09
-KYMR,"Kymera Therapeutics, Inc. - Common Stock",0001815442,NASDAQ,2836,8990754619.0,76919549.0,2026-10-09
-KYTX,"Kyverna Therapeutics, Inc. - Common Stock",0001994702,NASDAQ,2836,382192473.0,5593104.0,2026-10-09
-LBRX,LB Pharmaceuticals Inc - Common Stock,0001691082,NASDAQ,2834,1116490066.0,11860986.0,2026-10-09
-LGND,Ligand Pharmaceuticals Incorporated - Common Stock,0000886163,NASDAQ,2834,5881004655.0,77757280.0,2026-10-09
-LQDA,Liquidia Corporation - Common Stock,0001819576,NASDAQ,2834,2491765375.0,68398698.0,2026-10-09
-LTGO,"Latigo Biotherapeutics, Inc. - Common Stock",0002056611,NASDAQ,2834,980567340.0,5786780.0,2026-10-09
-LXRX,"Lexicon Pharmaceuticals, Inc. - Common Stock",0001062822,NASDAQ,2834,783122440.0,5061359.0,2026-10-09
-MANE,"Veradermics, Incorporated Common Stock",0001827635,NYSE,2834,5290435020.0,97792421.0,2026-10-09
-MAZE,"Maze Therapeutics, Inc. - Common Stock",0001842295,NASDAQ,2836,1437612421.0,14636123.0,2026-10-09
-MBX,"MBX Biosciences, Inc. - Common Stock",0001776111,NASDAQ,2834,2564525112.0,28616923.0,2026-10-09
-MGTX,MeiraGTx Holdings plc - Ordinary Shares,0001735438,NASDAQ,2836,1008451458.0,8377698.0,2026-10-09
-MIRM,"Mirum Pharmaceuticals, Inc. - common stock",0001759425,NASDAQ,2834,5282234615.0,56799301.0,2026-10-09
-MLTX,MoonLake Immunotherapeutics - Class A Ordinary Shares,0001821586,NASDAQ,2834,900428721.0,15560715.0,2026-10-09
-MLYS,"Mineralys Therapeutics, Inc. - Common Stock",0001933414,NASDAQ,2834,1978546012.0,23397842.0,2026-10-09
-MNKD,MannKind Corporation - Common Stock,0000899460,NASDAQ,2834,1099682160.0,15339165.0,2026-10-09
-MNPR,Monopar Therapeutics Inc. - Common Stock,0001645469,NASDAQ,2834,563688227.0,18060320.0,2026-10-09
-MPLT,"MapLight Therapeutics, Inc. - Common Stock",0001770069,NASDAQ,2834,508517808.0,7766703.0,2026-10-09
-MRVI,"Maravai LifeSciences Holdings, Inc. - Class A common stock",0001823239,NASDAQ,2834,1074214625.0,24028298.0,2026-10-09
-NAMS,NewAmsterdam Pharma Company N.V. - Ordinary Shares,0001936258,NASDAQ,2834,2485378620.0,28727023.0,2026-10-09
-NGNE,Neurogene Inc. - Common Stock,0001404644,NASDAQ,2834,530301623.0,6626219.0,2026-10-09
-NKTR,Nektar Therapeutics - Common Stock,0000906709,NASDAQ,2834,1393034129.0,43569993.0,2026-10-09
-NRC,NRC Health - Common Stock,0000070487,NASDAQ,8731,451681539.0,2350465.0,2026-10-09
-NRIX,"Nurix Therapeutics, Inc. - Common stock",0001549595,NASDAQ,2834,2304991084.0,28552242.0,2026-10-09
-NUVB,Nuvation Bio Inc. Class A Common Stock,0001811063,NYSE,2834,1738059936.0,28229483.0,2026-10-09
-NVAX,"Novavax, Inc. - Common Stock",0001000694,NASDAQ,2836,1816052481.0,56976069.0,2026-10-09
-NVCT,"Nuvectis Pharma, Inc. - Common Stock",0001875558,NASDAQ,2834,657125021.0,4374672.0,2026-10-09
-OABI,"OmniAb, Inc. - Common Stock",0001846253,NASDAQ,8731,677519232.0,6782844.0,2026-10-09
-OBX,"Obsidian Therapeutics, Inc. - Common Stock",0002130606,NASDAQ,2834,756099988.0,4496364.0,2026-10-09
-OCGN,"Ocugen, Inc. - Common Stock",0001372299,NASDAQ,2836,331310861.0,5767244.0,2026-10-09
-OCS,Oculis Holding AG - Ordinary shares,0001953530,NASDAQ,2834,533352703.0,2261265.0,2026-10-09
-OCUL,"Ocular Therapeutix, Inc. - Common Stock",0001393434,NASDAQ,2834,1649315219.0,21004081.0,2026-10-09
-ODTX,"Odyssey Therapeutics, Inc. - Common Stock",0001882782,NASDAQ,2836,870820550.0,4948935.0,2026-10-09
-OGN,Organon & Co. Common Stock ,0001821825,NYSE,2834,3610879704.0,36239748.0,2026-10-09
-OLMA,"Olema Pharmaceuticals, Inc. - Common Stock",0001750284,NASDAQ,2834,684231302.0,8342587.0,2026-10-09
-OMER,Omeros Corporation - Common Stock,0001285819,NASDAQ,2834,1384064663.0,32966247.0,2026-10-09
-OPK,"Opko Health, Inc. - Common Stock",0000944809,NASDAQ,2834,1022469672.0,4574466.0,2026-10-09
-ORIC,"Oric Pharmaceuticals, Inc. - Common Stock",0001796280,NASDAQ,2834,1246941424.0,17672864.0,2026-10-09
-ORKA,"Oruka Therapeutics, Inc. - Common Stock",0000907654,NASDAQ,2834,5116685458.0,68889400.0,2026-10-09
-OVID,Ovid Therapeutics Inc. - Common Stock,0001636651,NASDAQ,2834,456996969.0,3689422.0,2026-10-09
-PAHC,Phibro Animal Health Corporation - Class A Common Stock,0001069899,NASDAQ,2834,1518500014.0,8797041.0,2026-10-09
-PBH,Prestige Consumer Healthcare Inc. Common Stock,0001295947,NYSE,2834,2267818318.0,26120361.0,2026-10-09
-PBLS,"Parabilis Medicines, Inc. - Common Stock",0001657677,NASDAQ,2834,3470048730.0,19282746.0,2026-10-09
-PBYI,Puma Biotechnology Inc - Common Stock,0001401667,NASDAQ,2834,514652072.0,3219293.0,2026-10-09
-PCRX,"Pacira BioSciences, Inc. - Common Stock",0001396814,NASDAQ,2834,1450574007.0,37279116.0,2026-10-09
-PCVX,"Vaxcyte, Inc. - Common Stock",0001649094,NASDAQ,2836,9674575058.0,109952132.0,2026-10-09
-PGEN,"Precigen, Inc. - Common Stock",0001356090,NASDAQ,2834,2721067843.0,37987710.0,2026-10-09
-PHAT,"Phathom Pharmaceuticals, Inc. - Common Stock",0001783183,NASDAQ,2834,576823669.0,9945181.0,2026-10-09
-PHVS,Pharvaris N.V. - Ordinary Shares,0001830487,NASDAQ,2834,2184764286.0,22712372.0,2026-10-09
-PRAX,"Praxis Precision Medicines, Inc. - Common Stock",0001689548,NASDAQ,2834,7358312497.0,107361568.0,2026-10-09
-PRGO,Perrigo Company plc Ordinary Shares,0001585364,NYSE,2834,2012154053.0,40555311.0,2026-10-09
-PRLD,Prelude Therapeutics Incorporated - Common Stock,0001678660,NASDAQ,2834,309023800.0,1849270.0,2026-10-09
-PRME,"Prime Medicine, Inc. - Common Stock",0001894562,NASDAQ,2836,649329131.0,12115171.0,2026-10-09
-PROK,ProKidney Corp. - Class A Ordinary Shares,0001850270,NASDAQ,2836,340631517.0,2157864.0,2026-10-09
-PRTA,Prothena Corporation plc - Ordinary Shares,0001559053,NASDAQ,2834,442011329.0,4171355.0,2026-10-09
-PTCT,"PTC Therapeutics, Inc. - Common Stock",0001070081,NASDAQ,2834,5221307888.0,71572270.0,2026-10-09
-PTGX,"Protagonist Therapeutics, Inc. - Common Stock",0001377121,NASDAQ,2834,9053336391.0,89303856.0,2026-10-09
-PVLA,"Palvella Therapeutics, Inc. - Common Stock",0001583648,NASDAQ,2834,1892400123.0,27887421.0,2026-10-09
-QURE,uniQure N.V. - Ordinary Shares,0001590560,NASDAQ,2834,1563518990.0,44013950.0,2026-10-09
-RAPP,"Rapport Therapeutics, Inc. - Common Stock",0002012593,NASDAQ,2834,1432151855.0,10677524.0,2026-10-09
-RARE,Ultragenyx Pharmaceutical Inc. - Common Stock,0001515673,NASDAQ,2834,1507423864.0,58668663.0,2026-10-09
-RCUS,"Arcus Biosciences, Inc. Common Stock",0001724521,NYSE,2834,2997174441.0,31768798.0,2026-10-09
-REPL,"Replimune Group, Inc. - Common Stock",0001737953,NASDAQ,2836,1228624024.0,53898323.0,2026-10-09
-RGNX,REGENXBIO Inc. - Common Stock,0001590877,NASDAQ,2836,534046733.0,12406347.0,2026-10-09
-RIGL,"Rigel Pharmaceuticals, Inc. - Common Stock",0001034842,NASDAQ,2834,910082997.0,14105707.0,2026-10-09
-RLAY,"Relay Therapeutics, Inc. - Common Stock",0001812364,NASDAQ,2836,3815255762.0,49163333.0,2026-10-09
-RLMD,"Relmada Therapeutics, Inc. - Common Stock",0001553643,NASDAQ,2834,338143420.0,4246989.0,2026-10-09
-RXRX,"Recursion Pharmaceuticals, Inc. - Class A Common Stock",0001601830,NASDAQ,2836,2118270819.0,81854903.0,2026-10-09
-RYTM,"Rhythm Pharmaceuticals, Inc. - Common Stock",0001649904,NASDAQ,2834,6171900588.0,58677626.0,2026-10-09
-RZLT,"Rezolute, Inc. - Common Stock (NV)",0001509261,NASDAQ,2834,448791612.0,6934271.0,2026-10-09
-SANA,"Sana Biotechnology, Inc. - Common Stock",0001770121,NASDAQ,2836,835216166.0,8711914.0,2026-10-09
-SCTX,Scribe Therapeutics Inc. - Common Stock,0001853921,NASDAQ,2836,364056198.0,6872725.0,2026-10-09
-SDGR,"Schrodinger, Inc. - Common Stock",0001490978,NASDAQ,2834,1974120477.0,46492951.0,2026-10-09
-SEPN,"Septerna, Inc. - Common Stock",0001984086,NASDAQ,2834,1722379416.0,14736864.0,2026-10-09
-SGMT,Sagimet Biosciences Inc. - Series A Common Stock,0001400118,NASDAQ,2834,632505279.0,10983589.0,2026-10-09
-SLDB,Solid Biosciences Inc. - Common Stock,0001707502,NASDAQ,2836,731276142.0,7460985.0,2026-10-09
-SLS,"SELLAS Life Sciences Group, Inc.  - Common Stock",0001390478,NASDAQ,2834,2214082828.0,73491173.0,2026-10-09
-SNDX,"Syndax Pharmaceuticals, Inc. - Common Stock",0001395937,NASDAQ,2834,1509120719.0,26226704.0,2026-10-09
-SPRY,"ARS Pharmaceuticals, Inc. - Common Stock",0001671858,NASDAQ,2834,453479878.0,8420500.0,2026-10-09
-SPTX,"Seaport Therapeutics, Inc. - Common Stock",0002042347,NASDAQ,2834,958732142.0,3261536.0,2026-10-09
-SRPT,"Sarepta Therapeutics, Inc. - Common Stock",0000873303,NASDAQ,2834,1923467956.0,54490691.0,2026-10-09
-SRRK,Scholar Rock Holding Corporation - Common Stock,0001727196,NASDAQ,2836,5139338993.0,64009383.0,2026-10-09
-SRZN,"Surrozen, Inc. - Common Stock",0001824893,NASDAQ,2836,328747009.0,13375449.0,2026-10-09
-STOK,"Stoke Therapeutics, Inc. - Common Stock",0001623526,NASDAQ,2834,1545403545.0,20347322.0,2026-10-09
-STTK,"Shattuck Labs, Inc. - Common Stock",0001680367,NASDAQ,2834,568055997.0,6908551.0,2026-10-09
-SUPN,"Supernus Pharmaceuticals, Inc. - Common Stock",0001356576,NASDAQ,2834,2453565350.0,32247635.0,2026-10-09
-SVRA,"Savara, Inc. - Common Stock",0001160308,NASDAQ,2834,989798418.0,8818754.0,2026-10-09
-SYRE,"Spyre Therapeutics, Inc. - Common Stock",0001636282,NASDAQ,2834,7374083800.0,97368459.0,2026-10-09
-TARS,"Tarsus Pharmaceuticals, Inc. - Common Stock",0001819790,NASDAQ,2836,3379295764.0,64309528.0,2026-10-09
-TECX,"Tectonic Therapeutic, Inc. - Common Stock",0001681087,NASDAQ,2836,444748077.0,4995468.0,2026-10-09
-TGTX,"TG Therapeutics, Inc. - Common Stock",0001001316,NASDAQ,2834,8164703310.0,107060901.0,2026-10-09
-TNGX,"Tango Therapeutics, Inc. - Common Stock",0001819133,NASDAQ,2834,3805535932.0,59851148.0,2026-10-09
-TRAX,"First Tracks Biotherapeutics, Inc. - Ordinary Shares",0002091349,NASDAQ,2834,1116905057.0,25498749.0,2026-10-09
-TRVI,"Trevi Therapeutics, Inc. - Common Stock",0001563880,NASDAQ,2834,1827252634.0,25902665.0,2026-10-09
-TSHA,"Taysha Gene Therapies, Inc. - Common Stock",0001806310,NASDAQ,2836,1443442548.0,14471077.0,2026-10-09
-TTRX,Turn Therapeutics Inc. - Common Stock,0002023016,NASDAQ,2834,345888159.0,1272263.0,2026-10-09
-TVTX,"Travere Therapeutics, Inc. - Common Stock",0001438533,NASDAQ,2834,4905346794.0,82480799.0,2026-10-09
-TYRA,"Tyra Biosciences, Inc. - Common Stock",0001863127,NASDAQ,2834,1373056055.0,17097035.0,2026-10-09
-URGN,UroGen Pharma Ltd. - Ordinary Shares,0001668243,NASDAQ,2834,1807603234.0,31264926.0,2026-10-09
-VCEL,Vericel Corporation - Common Stock,0000887359,NASDAQ,2836,2050824852.0,20266501.0,2026-10-09
-VERA,"Vera Therapeutics, Inc. - Class A Common Stock",0001831828,NASDAQ,2834,2142442917.0,65977023.0,2026-10-09
-VIR,"Vir Biotechnology, Inc. - Common Stock",0001706431,NASDAQ,2836,1881681434.0,21327882.0,2026-10-09
-VKTX,"Viking Therapeutics, Inc. - Common Stock",0001607678,NASDAQ,2834,3526292352.0,113598272.0,2026-10-09
-VOR,Vor Biopharma Inc. - Common Stock,0001817229,NASDAQ,2836,1131774635.0,19109454.0,2026-10-09
-VRDN,"Viridian Therapeutics, Inc.  - Common Stock",0001590750,NASDAQ,2834,2077780231.0,31510394.0,2026-10-09
-VSTM,"Verastem, Inc. - Common Stock",0001526119,NASDAQ,2834,734469475.0,18630721.0,2026-10-09
-WVE,"Wave Life Sciences, Inc. - Common Stock",0001631574,NASDAQ,2834,683757173.0,10741399.0,2026-10-09
-XERS,"Xeris Biopharma Holdings, Inc. - Common Stock",0001867096,NASDAQ,2834,1857843842.0,22061145.0,2026-10-09
-XNCR,"Xencor, Inc. - Common Stock",0001326732,NASDAQ,2834,1821658227.0,32329514.0,2026-10-09
-ZBIO,"Zenas BioPharma, Inc. - Common Stock",0001953926,NASDAQ,2834,1656619798.0,19217730.0,2026-10-09
-ZURA,Zura Bio Limited - Class A Ordinary shares,0001855644,NASDAQ,2836,395774347.0,5911059.0,2026-10-09
-ZVRA,"Zevra Therapeutics, Inc.  - Common Stock",0001434647,NASDAQ,2834,653221591.0,12265297.0,2026-10-09
-ZYME,Zymeworks Inc. - Common Stock,0001937653,NASDAQ,2834,1812405016.0,17639513.0,2026-10-09
+ticker,name,cik,exchange,sic_code,theme,modality,lead_asset,lead_phase,market_cap_usd,avg_daily_dollar_volume,in_universe
+ABUS,Arbutus Biopharma Corporation - Common Stock,0001447028,NASDAQ,2834,genetic_medicine,RNAi therapeutic (GalNAc-conjugated siRNA),imdusiran (AB-729),phase2,640693265.0,19575721.0,1
+ACAD,ACADIA Pharmaceuticals Inc. - Common Stock,0001070494,NASDAQ,2834,neuropsychiatry,small molecule,remlifanserin,phase2,3373742029.0,36131816.0,1
+ADRX,"ADARx Pharmaceuticals, Inc. - Common stock",0001802369,NASDAQ,2834,,,,,1888247459.0,22065171.0,1
+AGEN,Agenus Inc. - Common Stock,0001098972,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,monoclonal antibody (checkpoint inhibitors; anti-TIGIT bispecific program mentioned),botensilimab,,340520845.0,31734420.0,1
+AKTS,"Aktis Oncology, Inc. - Common stock",0002035832,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,radiopharmaceutical (miniprotein radioconjugate with actinium-225),[225Ac]Ac-AKY-1189,phase1,986689900.0,6495341.0,1
+ALKS,Alkermes plc - Ordinary Shares,0001520262,NASDAQ,2834,neuropsychiatry,small molecule,alixorexton,phase2,6728984942.0,74306022.0,1
+ALLO,"Allogene Therapeutics, Inc. - Common Stock",0001737287,NASDAQ,2836,genetic_medicine,"allogeneic CAR T cell therapy (gene-edited, TALEN/CRISPR)","cemacabtagene ansegedleucel (cema-cel, ALLO-501A)",phase2,483687225.0,7956082.0,1
+ALVO,Alvotech - Ordinary Shares,0001898416,NASDAQ,2836,,,,,2023152633.0,5893353.0,1
+AMLX,"Amylyx Pharmaceuticals, Inc. - Common Stock",0001658551,NASDAQ,2834,neuropsychiatry,"peptide (GLP-1 receptor antagonist, subcutaneous)",avexitide,phase3,3413955001.0,63367869.0,1
+AMRX,"Amneal Pharmaceuticals, Inc. - Class A Common Stock",0001723128,NASDAQ,2834,neuropsychiatry,small molecule,CREXONT,approved,6844016798.0,44755822.0,1
+ANNX,"Annexon, Inc. - common stock",0001528115,NASDAQ,2834,neuropsychiatry,anti-C1q targeted immunotherapy (monoclonal antibody),tanruprubart,filed,758316536.0,12441600.0,1
+ANRO,"Alto Neuroscience, Inc. Common Stock",0001999480,NYSE,2834,neuropsychiatry,small molecule,ALTO-207,phase2,942987786.0,12930159.0,1
+APMD,"Apnimed, Inc. - Common Stock",0001745648,NASDAQ,2834,,,,,758512765.0,10058660.0,1
+ARCT,Arcturus Therapeutics Holdings Inc. - Common Stock,0001768224,NASDAQ,2834,genetic_medicine,mRNA therapeutic (LUNAR lipid nanoparticle-delivered mRNA),ARCT-032,phase2,365804895.0,12027530.0,1
+ARTV,"Artiva Biotherapeutics, Inc. - Common Stock",0001817241,NASDAQ,2836,genetic_medicine,"allogeneic, non-genetically modified NK cell therapy",AlloNK (AB-101),phase2,332452832.0,2729296.0,1
+ARVN,"Arvinas, Inc. - Common Stock",0001655759,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (PROTAC protein degrader),vepdegestrant,filed,484554212.0,5881111.0,1
+ARWR,"Arrowhead Pharmaceuticals, Inc. - Common Stock",0000879407,NASDAQ,2834,genetic_medicine,"siRNA (RNAi therapeutic, TRiM platform)",REDEMPLO (plozasiran),approved,8579796563.0,115410255.0,1
+ATTO,"Attovia Therapeutics, Inc. - Common Stock",0002058707,NASDAQ,2836,,,,,744572059.0,7459688.0,1
+AURA,"Aura Biosciences, Inc. - Common Stock",0001501796,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,"virus-like drug conjugate (VDC), light-activated HPV-derived virus-like particle conjugated to phthalocyanine dye",belzupacap sarotalocan (bel-sar),phase3,674599794.0,4911724.0,1
+AVBP,"ArriVent BioPharma, Inc. - Common Stock",0001868279,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (EGFR mutant-selective TKI); also ADCs,firmonertinib,phase3,823932106.0,15058583.0,1
+AVLN,Avalyn Pharma Inc. - common stock,0001540171,NASDAQ,2834,,,,,1140247173.0,6295999.0,1
+AXSM,"Axsome Therapeutics, Inc. - Common Stock",0001579428,NASDAQ,2834,neuropsychiatry,small molecule,AXS-05 (dextromethorphan-bupropion),filed,8908929621.0,120911574.0,1
+BCAX,Bicara Therapeutics Inc. - Common Stock,0002023658,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,bifunctional antibody (anti-EGFR monoclonal antibody fused to TGF-β receptor 2 ligand trap),ficerafusp alfa,phase3,1134048742.0,10707276.0,1
+BEAM,Beam Therapeutics Inc. - Common Stock,0001745999,NASDAQ,2836,genetic_medicine,gene editing (base editing),risto-cel,phase1,2540876598.0,47321569.0,1
+BLSM,"BlossomHill Therapeutics, Inc. - Common Stock",0001839970,NASDAQ,2834,,,,,536529237.0,4409512.0,1
+BNTC,Benitec Biopharma Inc. - Common Stock,0001808898,NASDAQ,2834,genetic_medicine,AAV-based gene therapy (ddRNAi silence and replace shmiRs plus PABPN1 replacement),BB-301,phase1,305223853.0,1341839.0,1
+BRVE,"Braveheart Bio, Inc. - Common Stock",0002131524,NASDAQ,2834,,,,,1718843932.0,10659512.0,1
+CABA,"Cabaletta Bio, Inc. - Common Stock",0001759138,NASDAQ,2836,genetic_medicine,autologous CD19-directed CAR T cell therapy,"rese-cel (resecabtagene autoleucel, formerly CABA-201)",phase2,330613626.0,9150024.0,1
+CADL,"Candel Therapeutics, Inc. - Common Stock",0001841387,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,viral immunotherapy (replication-defective adenovirus gene therapy with HSV-TK prodrug activation; HSV-based oncolytic),aglatimagene besadenovec,phase3,707790498.0,11651979.0,1
+CAPR,"Capricor Therapeutics, Inc. - Common Stock",0001133869,NASDAQ,2834,genetic_medicine,allogeneic cell therapy (cardiosphere-derived cells) with exosome platform,Deramiocel,filed,465693315.0,54333914.0,1
+CBIO,"Crescent Biopharma, Inc. - Common Stock",0001253689,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,"bispecific antibody (PD-1 x VEGF); ADC (PD-L1 and ITGB6 directed, topoisomerase payloads)",CR-001,phase1,524513235.0,5592861.0,1
+CCCC,"C4 Therapeutics, Inc. - Common Stock",0001662579,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,small molecule protein degrader (MonoDAC molecular glue and BiDAC heterobivalent),cemsidomide,phase2,350621626.0,6812275.0,1
+CGEM,"Cullinan Therapeutics, Inc. - Common Stock",0001789972,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,bispecific T cell engager (CD19xCD3),CLN-978,phase1,950141394.0,13530221.0,1
+CGON,"CG Oncology, Inc. - Common stock",0001991792,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,oncolytic immunotherapy (oncolytic adenovirus),cretostimogene grenadenorepvec,filed,5607389974.0,56170007.0,1
+COAG,"Hemab Therapeutics Holdings, Inc. - Common Stock",0002114044,NASDAQ,2836,,,,,1442937266.0,14100358.0,1
+COGT,"Cogent Biosciences, Inc. - Common Stock",0001622229,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (selective KIT tyrosine kinase inhibitor),bezuclastinib (CGT9486),filed,5219631445.0,58069049.0,1
+COLL,"Collegium Pharmaceutical, Inc. - Common Stock",0001267565,NASDAQ,2834,neuropsychiatry,small molecule,Jornay PM,approved,719804623.0,16471508.0,1
+CRVS,"Corvus Pharmaceuticals, Inc. - Common Stock",0001626971,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (oral covalent ITK kinase inhibitor),soquelitinib (CPI-818),phase3,858874841.0,10080313.0,1
+CTMX,"CytomX Therapeutics, Inc. - Common Stock",0001501989,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,conditionally activated (masked) antibody-drug conjugate (PROBODY platform),Varsetatug masetecan (Varseta-M),phase1,538211238.0,8296520.0,1
+CTNM,"Contineum Therapeutics, Inc. - Common stock",0001855175,NASDAQ,2834,neuropsychiatry,small molecule,PIPE-791,phase2,495846531.0,6764174.0,1
+CYPH,Cypherpunk Technologies Inc. - Common Stock,0001509745,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,monoclonal antibody,sirexatamab (DKN-01),phase2,302817907.0,27958210.0,1
+CYRX,"CryoPort, Inc. - Common Stock",0001124524,NASDAQ,2834,genetic_medicine,"not applicable (temperature-controlled logistics, biostorage, and cryogenic equipment services)",,,855969771.0,10840674.0,1
+DMAC,DiaMedica Therapeutics Inc. - Common Stock,0001401040,NASDAQ,2834,neuropsychiatry,"recombinant protein (recombinant human kallikrein-1, protein augmentation therapy)",DM199 (rinvecalinase alfa),phase2,431944845.0,1421118.0,1
+DMRA,"Damora Therapeutics, Inc. - Ordinary Shares",0001800315,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,monoclonal antibody,DMR-001,preclinical,1269282238.0,11035929.0,1
+DNLI,Denali Therapeutics Inc. - Common Stock,0001714899,NASDAQ,2836,neuropsychiatry,Fc-based blood-brain barrier transport vehicle fused to enzyme (enzyme replacement biologic); also antibody and antisense oligonucleotide TV conjugates,"tividenofusp alfa (DNL310, ETV:IDS)",filed,2984351026.0,30244019.0,1
+DNTH,"Dianthus Therapeutics, Inc. - Common Stock",0001690585,NASDAQ,2834,neuropsychiatry,"monoclonal antibody (fully human IgG4, YTE half-life extension)",claseprubart,phase3,4610670796.0,67924793.0,1
+DSGN,"Design Therapeutics, Inc. - Common Stock",0001807120,NASDAQ,2834,genetic_medicine,small molecule (GeneTAC gene-targeted chimera),DT-216P2,phase1,719063156.0,6947681.0,1
+DYN,"Dyne Therapeutics, Inc. - Common Stock",0001818794,NASDAQ,2834,genetic_medicine,TfR1-targeting Fab antibody-oligonucleotide conjugate (PMO payload),z-rostudirsen (DYNE-251),phase2,3057039232.0,46363231.0,1
+EDIT,"Editas Medicine, Inc. - Common Stock",0001650664,NASDAQ,2836,genetic_medicine,"CRISPR gene editing (in vivo, Cas9/Cas12a LNP-delivered)",EDIT-401,preclinical,436167286.0,7180122.0,1
+EIKN,"Eikon Therapeutics, Inc. - Common Stock",0001861123,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,small molecule,EIK1001,phase3,406237725.0,3735975.0,1
+EPRX,Eupraxia Pharmaceuticals Inc. - Common Stock,0001581178,NASDAQ,2834,,,,,500175445.0,4307421.0,1
+ERAS,"Erasca, Inc. - Common Stock",0001761918,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,"small molecule (pan-RAS molecular glue ERAS-0015; pan-KRAS small molecule inhibitor ERAS-4001); also biparatopic antibody (ERAS-12, discovery stage)",ERAS-0015,phase1,5407321074.0,67479344.0,1
+ETRA,"Electra Therapeutics, Inc. - Common stock",0002088082,NASDAQ,2836,,,,,573689990.0,8343294.0,1
+FDMT,"4D Molecular Therapeutics, Inc. - Common Stock",0001650648,NASDAQ,2836,genetic_medicine,"AAV gene therapy (engineered AAV vectors, R100 and A101)",4D-150,phase3,701601469.0,11714607.0,1
+FTH,"Faeth Therapeutics, Inc.  - Common Stock",0001829802,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (oral combination of PI3Kα inhibitor serabelisib and mTORC1/2 inhibitor sapanisertib),PIKTOR,phase2,660193906.0,9009496.0,1
+GENB,"Generate Biomedicines, Inc. - Common Stock",0002100782,NASDAQ,2834,,,,,1795650550.0,14513366.0,1
+GERN,Geron Corporation - Common Stock,0000886744,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,oligonucleotide (lipid-conjugated 13-mer telomerase inhibitor),RYTELO (imetelstat),approved,783817577.0,12312521.0,1
+GHRS,GH Research PLC - Ordinary Shares,0001855129,NASDAQ,2834,,,,,1403734822.0,6082771.0,1
+HELP,Helus Pharma Inc.  - Common Stock,0001833141,NASDAQ,2834,,,,,783306860.0,18986879.0,1
+HRMY,"Harmony Biosciences Holdings, Inc. - Common Stock",0001802665,NASDAQ,2834,neuropsychiatry,small molecule,WAKIX (pitolisant),approved,2306161074.0,35171729.0,1
+IDYA,"IDEAYA Biosciences, Inc. - Common Stock",0001676725,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,darovasertib,phase3,3479410926.0,28209595.0,1
+IMMX,"Immix Biopharma, Inc. - Common Stock",0001873835,NASDAQ,2834,genetic_medicine,autologous BCMA-targeting CAR-T cell therapy,NXC-201,phase2,770168412.0,15256688.0,1
+IMNM,"Immunome, Inc. - Common Stock",0001472012,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,antibody-drug conjugate (ADC); also radioligand therapy (RLT),varegacestat,filed,2278640107.0,23255940.0,1
+IMTX,Immatics N.V. - Ordinary Shares,0001809196,NASDAQ,2836,,,,,1121898800.0,4386757.0,1
+INBX,"Inhibrx Biosciences, Inc. - Common Stock",0002007919,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,tetravalent DR5 agonist (single domain antibody-based Fc fusion),ozekibart (INBRX-109),phase3,1365210173.0,26960045.0,1
+INDV,"Indivior Pharmaceuticals, Inc.  - Common Stock",0001625297,NASDAQ,2834,neuropsychiatry,small molecule,INDV-6001,phase2,4184232150.0,73279654.0,1
+IONS,"Ionis Pharmaceuticals, Inc. - Common Stock",0000874015,NASDAQ,2834,genetic_medicine,antisense oligonucleotide (RNA-targeted),olezarsen (TRYNGOLZA),approved,7195781016.0,163369598.0,1
+IOVA,"Iovance Biotherapeutics, Inc. - Common Stock",0001425205,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,"cell therapy (autologous TIL, tumor infiltrating lymphocytes)",Amtagvi (lifileucel),approved,6029049950.0,236316329.0,1
+IRD,"Opus Genetics, Inc. - Common Stock",0001228627,NASDAQ,2834,genetic_medicine,AAV gene therapy,OPGx-LCA5,phase1,371053374.0,10487949.0,1
+JANX,"Janux Therapeutics, Inc. - Common Stock",0001817713,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,"bispecific (masked T cell engager, TRACTr)",JANX007,phase1,1131030301.0,15666189.0,1
+KARD,"Kardigan, Inc. - Common Stock",0002123613,NASDAQ,2834,,,,,1327752508.0,6870698.0,1
+KLRA,"Kailera Therapeutics, Inc. - Common stock",0002096997,NASDAQ,2834,,,,,1296436760.0,8585600.0,1
+KRSA,"Korsana Biosciences, Inc. - Common Stock",0001755237,NASDAQ,2834,neuropsychiatry,small molecule (anesthetic-based combination: propofol and dexmedetomidine delivered via closed-loop system),CYC-126,preclinical,1526093075.0,1065484.0,1
+KRYS,"Krystal Biotech, Inc. - Common Stock",0001711279,NASDAQ,2836,genetic_medicine,"HSV-1-based redosable gene therapy (topical, inhaled, and intradermal/ocular delivery)","VYJUVEK (beremagene geperpavec-svdt, B-VEC)",approved,9687698661.0,124076152.0,1
+KURA,"Kura Oncology, Inc. - Common Stock",0001422143,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,KOMZIFTI (ziftomenib),approved,935865753.0,18579657.0,1
+KYTX,"Kyverna Therapeutics, Inc. - Common Stock",0001994702,NASDAQ,2836,genetic_medicine,autologous CAR T cell therapy,"miv-cel (mivocabtagene autoleucel, KYV-101)",filed,382192473.0,5593104.0,1
+LBRX,LB Pharmaceuticals Inc - Common Stock,0001691082,NASDAQ,2834,neuropsychiatry,,LB-102,phase2,1116490066.0,11860986.0,1
+LTGO,"Latigo Biotherapeutics, Inc. - Common Stock",0002056611,NASDAQ,2834,,,,,980567340.0,5786780.0,1
+MGTX,MeiraGTx Holdings plc - Ordinary Shares,0001735438,NASDAQ,2836,genetic_medicine,AAV gene therapy (viral vector),AAV-hAQP1,phase2,1008451458.0,8377698.0,1
+MNPR,Monopar Therapeutics Inc. - Common Stock,0001645469,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,ALXN1840,,563688227.0,18060320.0,1
+MPLT,"MapLight Therapeutics, Inc. - Common Stock",0001770069,NASDAQ,2834,neuropsychiatry,small molecule (fixed-dose combination of M1/M4 muscarinic agonist ML-007 with peripherally acting anticholinergic),ML-007C-MA,phase2,508517808.0,7766703.0,1
+NGNE,Neurogene Inc. - Common Stock,0001404644,NASDAQ,2834,genetic_medicine,"AAV gene therapy (EXACT microRNA-based transgene regulation, AAV9 capsid)",NGN-401,phase3,530301623.0,6626219.0,1
+NRIX,"Nurix Therapeutics, Inc. - Common stock",0001549595,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (targeted protein degrader; DAC degrader antibody conjugates in preclinical),bexobrutideg (NX-5948),phase2,2304991084.0,28552242.0,1
+NUVB,Nuvation Bio Inc. Class A Common Stock,0001811063,NYSE,2834,oncology_bispecifics_adc_radiopharma,small molecule,taletrectinib (IBTROZI),approved,1738059936.0,28229483.0,1
+NVCT,"Nuvectis Pharma, Inc. - Common Stock",0001875558,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,NXP900,phase1,657125021.0,4374672.0,1
+OABI,"OmniAb, Inc. - Common Stock",0001846253,NASDAQ,8731,oncology_bispecifics_adc_radiopharma,"antibody discovery platform (transgenic animals, bispecific/multispecific antibodies, single-domain antibodies)",,,677519232.0,6782844.0,1
+OBX,"Obsidian Therapeutics, Inc. - Common Stock",0002130606,NASDAQ,2834,,,,,756099988.0,4496364.0,1
+OCGN,"Ocugen, Inc. - Common Stock",0001372299,NASDAQ,2836,genetic_medicine,AAV5 modifier gene therapy (NR2E3 nuclear hormone receptor delivered subretinally),OCU400,phase3,331310861.0,5767244.0,1
+OCS,Oculis Holding AG - Ordinary shares,0001953530,NASDAQ,2834,,,,,533352703.0,2261265.0,1
+ODTX,"Odyssey Therapeutics, Inc. - Common Stock",0001882782,NASDAQ,2836,,,,,870820550.0,4948935.0,1
+OLMA,"Olema Pharmaceuticals, Inc. - Common Stock",0001750284,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,palazestrant (OP-1250),phase3,684231302.0,8342587.0,1
+OPK,"Opko Health, Inc. - Common Stock",0000944809,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,multispecific antibodies (ModeX pipeline); NGENLA is a long-acting hGH fusion protein,NGENLA (somatrogon-ghla),approved,1022469672.0,4574466.0,1
+ORIC,"Oric Pharmaceuticals, Inc. - Common Stock",0001796280,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,rinzimetostat,phase1,1246941424.0,17672864.0,1
+OVID,Ovid Therapeutics Inc. - Common Stock,0001636651,NASDAQ,2834,neuropsychiatry,small molecule,OV329,phase1,456996969.0,3689422.0,1
+PBLS,"Parabilis Medicines, Inc. - Common Stock",0001657677,NASDAQ,2834,,,,,3470048730.0,19282746.0,1
+PBYI,Puma Biotechnology Inc - Common Stock,0001401667,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,NERLYNX (neratinib),approved,514652072.0,3219293.0,1
+PCRX,"Pacira BioSciences, Inc. - Common Stock",0001396814,NASDAQ,2834,genetic_medicine,gene therapy (HCAd adenoviral vector),PCRX-201 (enekinragene inzadenovec),phase2,1450574007.0,37279116.0,1
+PGEN,"Precigen, Inc. - Common Stock",0001356090,NASDAQ,2834,genetic_medicine,non-replicating adenoviral vector immunotherapy (gene therapy); also autologous non-viral CAR-T (UltraCAR-T),"Papzimeos (zopapogene imadenovec-drba, PRGN-2012)",approved,2721067843.0,37987710.0,1
+PHVS,Pharvaris N.V. - Ordinary Shares,0001830487,NASDAQ,2834,,,,,2184764286.0,22712372.0,1
+PRAX,"Praxis Precision Medicines, Inc. - Common Stock",0001689548,NASDAQ,2834,neuropsychiatry,small molecule,ulixacaltamide,filed,7358312497.0,107361568.0,1
+PRLD,Prelude Therapeutics Incorporated - Common Stock,0001678660,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (allosteric JAK2V617F inhibitor; also targeted protein degraders and degrader-payload ADCs),PRT12396,preclinical,309023800.0,1849270.0,1
+PRME,"Prime Medicine, Inc. - Common Stock",0001894562,NASDAQ,2836,genetic_medicine,prime editing (gene editing; LNP and AAV delivery),PM577,preclinical,649329131.0,12115171.0,1
+PROK,ProKidney Corp. - Class A Ordinary Shares,0001850270,NASDAQ,2836,genetic_medicine,autologous cell therapy,rilparencel,phase3,340631517.0,2157864.0,1
+PRTA,Prothena Corporation plc - Ordinary Shares,0001559053,NASDAQ,2834,neuropsychiatry,monoclonal antibody,prasinezumab,phase3,442011329.0,4171355.0,1
+PTCT,"PTC Therapeutics, Inc. - Common Stock",0001070081,NASDAQ,2834,neuropsychiatry,small molecule,Sephience,approved,5221307888.0,71572270.0,1
+QURE,uniQure N.V. - Ordinary Shares,0001590560,NASDAQ,2834,genetic_medicine,"AAV gene therapy (miRNA gene silencing, miQURE platform)",AMT-130,phase2,1563518990.0,44013950.0,1
+RAPP,"Rapport Therapeutics, Inc. - Common Stock",0002012593,NASDAQ,2834,neuropsychiatry,small molecule,RAP-219,phase2,1432151855.0,10677524.0,1
+RARE,Ultragenyx Pharmaceutical Inc. - Common Stock,0001515673,NASDAQ,2834,genetic_medicine,AAV gene therapy,UX111,filed,1507423864.0,58668663.0,1
+RCUS,"Arcus Biosciences, Inc. Common Stock",0001724521,NYSE,2834,oncology_bispecifics_adc_radiopharma,small molecule,quemliclustat,phase3,2997174441.0,31768798.0,1
+REPL,"Replimune Group, Inc. - Common Stock",0001737953,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,oncolytic virus (engineered HSV-1),RP1 (vusolimogene oderparepvec),filed,1228624024.0,53898323.0,1
+RGNX,REGENXBIO Inc. - Common Stock,0001590877,NASDAQ,2836,genetic_medicine,AAV gene therapy,"surabgene lomparvovec (sura-vec, ABBV-RGX-314)",phase3,534046733.0,12406347.0,1
+RIGL,"Rigel Pharmaceuticals, Inc. - Common Stock",0001034842,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,TAVALISSE (fostamatinib),approved,910082997.0,14105707.0,1
+RXRX,"Recursion Pharmaceuticals, Inc. - Class A Common Stock",0001601830,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,small molecule,REC-4881,phase2,2118270819.0,81854903.0,1
+SANA,"Sana Biotechnology, Inc. - Common Stock",0001770121,NASDAQ,2836,genetic_medicine,cell therapy (iPSC-derived hypoimmune allogeneic islet cells); in vivo CAR T via CD8-targeted fusosome (gene delivery),SC451,preclinical,835216166.0,8711914.0,1
+SCTX,Scribe Therapeutics Inc. - Common Stock,0001853921,NASDAQ,2836,,,,,364056198.0,6872725.0,1
+SDGR,"Schrodinger, Inc. - Common Stock",0001490978,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,SGR-1505,phase1,1974120477.0,46492951.0,1
+SLDB,Solid Biosciences Inc. - Common Stock,0001707502,NASDAQ,2836,genetic_medicine,AAV gene transfer,SGT-003,phase3,731276142.0,7460985.0,1
+SLS,"SELLAS Life Sciences Group, Inc.  - Common Stock",0001390478,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,peptide immunotherapy (WT1 heteroclitic peptide vaccine); also small molecule CDK9 inhibitor (SLS009/tambiciclib),galinpepimut-S (GPS),phase3,2214082828.0,73491173.0,1
+SNDX,"Syndax Pharmaceuticals, Inc. - Common Stock",0001395937,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,"small molecule (menin inhibitor, oral); also monoclonal antibody (axatilimab)",Revuforj (revumenib),approved,1509120719.0,26226704.0,1
+SPTX,"Seaport Therapeutics, Inc. - Common Stock",0002042347,NASDAQ,2834,,,,,958732142.0,3261536.0,1
+SRPT,"Sarepta Therapeutics, Inc. - Common Stock",0000873303,NASDAQ,2834,genetic_medicine,AAV gene therapy (also siRNA and antisense oligonucleotides/PMOs),ELEVIDYS,approved,1923467956.0,54490691.0,1
+SRRK,Scholar Rock Holding Corporation - Common Stock,0001727196,NASDAQ,2836,neuropsychiatry,"monoclonal antibody (fully human, anti-latent myostatin)",apitegromab,filed,5139338993.0,64009383.0,1
+STOK,"Stoke Therapeutics, Inc. - Common Stock",0001623526,NASDAQ,2834,genetic_medicine,antisense oligonucleotide (ASO) RNA therapeutic,zorevunersen (STK-001),phase3,1545403545.0,20347322.0,1
+SUPN,"Supernus Pharmaceuticals, Inc. - Common Stock",0001356576,NASDAQ,2834,neuropsychiatry,small molecule,Qelbree,approved,2453565350.0,32247635.0,1
+TGTX,"TG Therapeutics, Inc. - Common Stock",0001001316,NASDAQ,2834,neuropsychiatry,monoclonal antibody (anti-CD20),BRIUMVI (ublituximab-xiiy),approved,8164703310.0,107060901.0,1
+TRAX,"First Tracks Biotherapeutics, Inc. - Ordinary Shares",0002091349,NASDAQ,2834,,,,,1116905057.0,25498749.0,1
+TSHA,"Taysha Gene Therapies, Inc. - Common Stock",0001806310,NASDAQ,2836,genetic_medicine,AAV gene therapy (intrathecal AAV9 gene transfer),TSHA-102,phase1,1443442548.0,14471077.0,1
+TYRA,"Tyra Biosciences, Inc. - Common Stock",0001863127,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,dabogratinib (formerly TYRA-300),phase2,1373056055.0,17097035.0,1
+URGN,UroGen Pharma Ltd. - Ordinary Shares,0001668243,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule (mitomycin) in RTGel hydrogel formulation for intravesical/pyelocalyceal delivery,Jelmyto (mitomycin) for pyelocalyceal solution,approved,1807603234.0,31264926.0,1
+VCEL,Vericel Corporation - Common Stock,0000887359,NASDAQ,2836,genetic_medicine,autologous cell therapy (cellularized scaffold),MACI,approved,2050824852.0,20266501.0,1
+VIR,"Vir Biotechnology, Inc. - Common Stock",0001706431,NASDAQ,2836,oncology_bispecifics_adc_radiopharma,"T-cell engagers (bispecific), monoclonal antibodies, siRNA",,,1881681434.0,21327882.0,1
+VOR,Vor Biopharma Inc. - Common Stock,0001817229,NASDAQ,2836,genetic_medicine,fusion protein,telitacicept,phase3,1131774635.0,19109454.0,1
+VSTM,"Verastem, Inc. - Common Stock",0001526119,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,small molecule,AVMAPKI FAKZYNJA CO-PACK (avutometinib + defactinib),approved,734469475.0,18630721.0,1
+WVE,"Wave Life Sciences, Inc. - Common Stock",0001631574,NASDAQ,2834,genetic_medicine,oligonucleotide (GalNAc-conjugated siRNA; RNA editing AIMers; splicing oligonucleotides),WVE-007,phase1,683757173.0,10741399.0,1
+XNCR,"Xencor, Inc. - Common Stock",0001326732,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,"bispecific antibody (XmAb 2+1 CD3 T-cell engager, Fc-engineered)",XmAb819,phase1,1821658227.0,32329514.0,1
+ZVRA,"Zevra Therapeutics, Inc.  - Common Stock",0001434647,NASDAQ,2834,neuropsychiatry,small molecule,MIPLYFFA (arimoclomol),approved,653221591.0,12265297.0,1
+ZYME,Zymeworks Inc. - Common Stock,0001937653,NASDAQ,2834,oncology_bispecifics_adc_radiopharma,"bispecific antibody (zanidatamab, Azymetric platform); ADC (ZW191, ZW251 with TOPO1i payload ZD06519); trispecific T cell engager",Ziihera (zanidatamab-hrii),approved,1812405016.0,17639513.0,1
+ABSI,Absci Corporation - Common Stock,0001672688,NASDAQ,8731,none,"monoclonal antibody (extended half-life, AI-designed)",ABS-201,phase1,1534229177.0,31040376.0,0
+ACRS,"Aclaris Therapeutics, Inc. - Common Stock",0001557746,NASDAQ,2834,none,monoclonal antibody (anti-TSLP); ATI-052 is a TSLP/IL-4R bispecific antibody,bosakitug,,557883799.0,9781160.0,0
+ADMA,ADMA Biologics Inc - Common Stock,0001368514,NASDAQ,2836,none,plasma-derived polyclonal immune globulin (IVIG and hyperimmune globulin),ASCENIV,approved,2313761727.0,27405314.0,0
+ADPT,Adaptive Biotechnologies Corporation - Common Stock,0001478320,NASDAQ,2836,none,NGS-based diagnostic assay (immunosequencing); no therapeutic modality in the lead product,clonoSEQ,approved,4163855542.0,62219380.0,0
+AGIO,"Agios Pharmaceuticals, Inc. - Common Stock",0001439222,NASDAQ,2834,none,small molecule,mitapivat,approved,1905684078.0,34083729.0,0
+ALMS,Alumis Inc. - Common Stock,0001847367,NASDAQ,2834,none,small molecule,"envudeucitinib (envu, ESK-001)",phase3,902163589.0,17002130.0,0
+ALT,"Altimmune, Inc. - Common Stock",0001326190,NASDAQ,2834,none,peptide (glucagon/GLP-1 dual receptor agonist),pemvidutide,phase2,505746004.0,10899181.0,0
+AMPH,"Amphastar Pharmaceuticals, Inc. - Common Stock",0001297184,NASDAQ,2834,none,"complex generic and peptide injectables, inhalation (MDI), and intranasal products; biosimilar insulin",BAQSIMI (glucagon) nasal powder,approved,1097904312.0,12178603.0,0
+ANAB,"AnaptysBio, Inc. - Common Stock",0001370053,NASDAQ,2834,none,monoclonal antibody,rosnilimab,phase2,1381459198.0,26024686.0,0
+ANIP,"ANI Pharmaceuticals, Inc. - Common Stock",0001023024,NASDAQ,2834,none,small molecule,ILUVIEN,approved,1653406014.0,26869343.0,0
+AQST,"Aquestive Therapeutics, Inc. - Common Stock",0001398733,NASDAQ,2834,none,"small molecule prodrug (sublingual oral film, PharmFilm delivery platform)",Anaphylm (dibutepinephrine) sublingual film,filed,597222892.0,12624534.0,0
+ARDX,"Ardelyx, Inc. - Common Stock",0001437402,NASDAQ,2834,none,small molecule,IBSRELA (tenapanor),approved,844273356.0,13526433.0,0
+ARQT,"Arcutis Biotherapeutics, Inc. - Common stock",0001787306,NASDAQ,2834,none,"small molecule (topical PDE4 inhibitor, roflumilast)",ZORYVE (roflumilast),approved,3078196096.0,54393490.0,0
+ASMB,"Assembly Biosciences, Inc. - Common Stock",0001426800,NASDAQ,2834,none,small molecule,ABI-5366,phase1,464628795.0,6349254.0,0
+AVIR,"Atea Pharmaceuticals, Inc. - common stock",0001593899,NASDAQ,2834,none,"small molecule (nucleotide analog prodrug, NS5B polymerase inhibitor combined with NS5A inhibitor)",bemnifosbuvir and ruzasvir (fixed-dose combination),phase3,412539712.0,1542340.0,0
+AVTX,"Avalo Therapeutics, Inc. - Common Stock",0001534120,NASDAQ,2834,none,monoclonal antibody (humanized IgG4 anti-IL-1β),abdakibart (AVTX-009),phase2,720250769.0,12451464.0,0
+BCRX,"BioCryst Pharmaceuticals, Inc. - Common Stock",0000882796,NASDAQ,2836,none,small molecule,ORLADEYO (berotralstat),approved,2118386011.0,34203487.0,0
+BHC,Bausch Health Companies Inc. Common Stock,0000885590,NYSE,2834,none,small molecule,Xifaxan,approved,2258902974.0,19395889.0,0
+CLYM,"Climb Bio, Inc. - Common Stock",0001768446,NASDAQ,2834,none,monoclonal antibody,budoprutug,phase2,623757710.0,14905817.0,0
+CRMD,CorMedix Inc. - Common Stock,0001410098,NASDAQ,2834,none,small molecule,DefenCath,approved,574267856.0,7760606.0,0
+CYTK,"Cytokinetics, Incorporated - Common Stock",0001061983,NASDAQ,2834,none,small molecule,MYQORZO (aficamten),approved,8620841917.0,121904216.0,0
+DNA,"Ginkgo Bioworks Holdings, Inc. Class A Common Stock",0001830214,NYSE,2836,none,cell engineering platform services (R&D services and tools; not a therapeutic modality),,,763638751.0,20267699.0,0
+EBS,Emergent BioSolutions Inc. Common Stock,0001367644,NYSE,2834,none,"live viral vaccines, monoclonal and polyclonal antibodies, small molecule antiviral, intranasal naloxone",,,349171415.0,7914235.0,0
+ELVN,"Enliven Therapeutics, Inc.  - Common Stock",0001672619,NASDAQ,2834,none,small molecule kinase inhibitor (ATP-competitive TKI),ELVN-001,phase1,2976991098.0,45797325.0,0
+ENTA,"Enanta Pharmaceuticals, Inc. - Common Stock",0001177648,NASDAQ,2834,none,small molecule,zelicapavir,phase2,351848409.0,2752109.0,0
+ENTX,Entera Bio Ltd. - Ordinary Shares,0001638097,NASDAQ,2836,none,oral peptide tablet (N-Tab platform),EB613,phase2,434585678.0,4493938.0,0
+EOLS,"Evolus, Inc. - Common Stock",0001570562,NASDAQ,2834,none,injectable botulinum toxin type A (neurotoxin) and injectable hyaluronic acid gels,Jeuveau,approved,515193445.0,7015796.0,0
+ETON,"Eton Pharmaceuticals, Inc. - Common Stock",0001710340,NASDAQ,2834,none,,ET-600,filed,1564926641.0,33129389.0,0
+EWTX,"Edgewise Therapeutics, Inc. - Common Stock",0001710072,NASDAQ,2834,none,small molecule,sevasemten,phase2,4260539931.0,52871094.0,0
+FENC,Fennec Pharmaceuticals Inc. - Common Stock,0001211583,NASDAQ,2836,none,small molecule (sodium thiosulfate injection),PEDMARK,approved,372763904.0,2037558.0,0
+GALT,Galectin Therapeutics Inc. - Common Stock,0001133416,NASDAQ,2834,none,carbohydrate-based galectin-3 inhibitor (complex polysaccharide derived from plant pectin),belapectin,phase2,367092715.0,1397563.0,0
+GLUE,"Monte Rosa Therapeutics, Inc. - Common Stock",0001826457,NASDAQ,2836,none,small molecule (molecular glue degrader),MRT-8102,phase1,880434272.0,13657240.0,0
+HROW,"Harrow, Inc. - Common Stock",0001360214,NASDAQ,2834,none,small molecule (ophthalmic pharmaceuticals and compounded sedation formulations),MELT-300,phase3,1144129199.0,16948122.0,0
+IMVT,"Immunovant, Inc.  - Common Stock",0001764013,NASDAQ,2836,none,"monoclonal antibody (anti-FcRn, fully human, subcutaneous)",IMVT-1402,,6250284205.0,37307433.0,0
+INDP,"Indaptus Therapeutics, Inc. - Common Stock",0001857044,NASDAQ,2834,none,killed/attenuated Gram-negative bacteria-based systemic immunotherapy (multi-TLR agonist),Decoy20,phase1,315784293.0,1953316.0,0
+INVA,"Innoviva, Inc. - Common Stock",0001080014,NASDAQ,2834,none,small molecule,NUZOLVENCE (zoliflodacin),approved,1507763333.0,17045928.0,0
+IRON,"Disc Medicine, Inc. - Common Stock",0001816736,NASDAQ,2834,none,small molecule,bitopertin,filed,2333133147.0,28479010.0,0
+IRWD,"Ironwood Pharmaceuticals, Inc. - Class A Common Stock",0001446847,NASDAQ,2834,none,"synthetic long-acting peptide (GLP-2 analog); small-molecule GC-C agonist (linaclotide, approved)",apraglutide,phase3,639478576.0,7885047.0,0
+JBIO,"Jade Biosciences, Inc. - Common Stock",0001798749,NASDAQ,2834,none,"monoclonal antibody (half-life extended, YTE Fc engineering)",JADE101,phase1,899903002.0,12743957.0,0
+KNSA,"Kiniksa Pharmaceuticals International, plc - Class A Ordinary Shares",0001730430,NASDAQ,2834,none,recombinant fusion protein (cytokine trap); monoclonal antibody (KPL-387),ARCALYST,approved,6144391024.0,45390476.0,0
+KOD,Kodiak Sciences Inc - Common Stock,0001468748,NASDAQ,2836,none,antibody biopolymer conjugate (ABC) anti-VEGF biologic; bispecific anti-IL-6/VEGF,"tarcocimab tedromer (Zenkuda, KSI-301)",phase3,5924189951.0,147322068.0,0
+KYMR,"Kymera Therapeutics, Inc. - Common Stock",0001815442,NASDAQ,2836,none,small molecule (oral targeted protein degrader),KT-621,phase2,8990754619.0,76919549.0,0
+LGND,Ligand Pharmaceuticals Incorporated - Common Stock,0000886163,NASDAQ,2834,none,royalty aggregator and platform technology (Captisol cyclodextrin excipient),,,5881004655.0,77757280.0,0
+LQDA,Liquidia Corporation - Common Stock,0001819576,NASDAQ,2834,none,small molecule (inhaled dry-powder treprostinil formulation using PRINT particle engineering),YUTREPIA,approved,2491765375.0,68398698.0,0
+LXRX,"Lexicon Pharmaceuticals, Inc. - Common Stock",0001062822,NASDAQ,2834,none,small molecule,sotagliflozin,phase3,783122440.0,5061359.0,0
+MANE,"Veradermics, Incorporated Common Stock",0001827635,NYSE,2834,none,small molecule,VDPHL01,phase3,5290435020.0,97792421.0,0
+MAZE,"Maze Therapeutics, Inc. - Common Stock",0001842295,NASDAQ,2836,none,small molecule,MZE829,phase2,1437612421.0,14636123.0,0
+MBX,"MBX Biosciences, Inc. - Common Stock",0001776111,NASDAQ,2834,none,peptide prodrug (PEP platform),canvuparatide (MBX 2109),phase2,2564525112.0,28616923.0,0
+MIRM,"Mirum Pharmaceuticals, Inc. - common stock",0001759425,NASDAQ,2834,none,small molecule,Livmarli (maralixibat),approved,5282234615.0,56799301.0,0
+MLTX,MoonLake Immunotherapeutics - Class A Ordinary Shares,0001821586,NASDAQ,2834,none,Nanobody (tri-specific IL-17A/IL-17F inhibiting single-domain antibody),SLK,phase3,900428721.0,15560715.0,0
+MLYS,"Mineralys Therapeutics, Inc. - Common Stock",0001933414,NASDAQ,2834,none,small molecule,lorundrostat,filed,1978546012.0,23397842.0,0
+MNKD,MannKind Corporation - Common Stock,0000899460,NASDAQ,2834,none,inhaled insulin (Technosphere dry powder) and drug-device combinations,Afrezza,approved,1099682160.0,15339165.0,0
+MRVI,"Maravai LifeSciences Holdings, Inc. - Class A common stock",0001823239,NASDAQ,2834,none,nucleic acid reagents and bioprocess analytical tools (non-therapeutic supplier),,,1074214625.0,24028298.0,0
+NAMS,NewAmsterdam Pharma Company N.V. - Ordinary Shares,0001936258,NASDAQ,2834,none,small molecule,obicetrapib,filed,2485378620.0,28727023.0,0
+NKTR,Nektar Therapeutics - Common Stock,0000906709,NASDAQ,2834,none,"protein therapeutic (IL-2 pathway immunomodulator, polymer-conjugated)",rezpegaldesleukin,phase2,1393034129.0,43569993.0,0
+NRC,NRC Health - Common Stock,0000070487,NASDAQ,8731,none,,,,451681539.0,2350465.0,0
+NVAX,"Novavax, Inc. - Common Stock",0001000694,NASDAQ,2836,none,protein-based nanoparticle vaccine with Matrix-M adjuvant,Nuvaxovid (COVID-19 Vaccine),approved,1816052481.0,56976069.0,0
+OCUL,"Ocular Therapeutix, Inc. - Common Stock",0001393434,NASDAQ,2834,none,"intravitreal bioresorbable hydrogel drug delivery (small molecule axitinib, TKI)",AXPAXLI,phase3,1649315219.0,21004081.0,0
+OGN,Organon & Co. Common Stock ,0001821825,NYSE,2834,none,biosimilar monoclonal antibodies and small-molecule/hormonal products,,,3610879704.0,36239748.0,0
+OMER,Omeros Corporation - Common Stock,0001285819,NASDAQ,2834,none,monoclonal antibody (MASP-2 inhibitor); also small molecule (PDE7 and MASP-2/MASP-3 programs),YARTEMLEA (narsoplimab-wuug),approved,1384064663.0,32966247.0,0
+ORKA,"Oruka Therapeutics, Inc. - Common Stock",0000907654,NASDAQ,2834,none,"monoclonal antibody (extended half-life, YTE Fc engineering)",ORKA-001,phase2,5116685458.0,68889400.0,0
+PAHC,Phibro Animal Health Corporation - Class A Common Stock,0001069899,NASDAQ,2834,none,"small molecule (medicated feed additives), vaccines, nutritional specialty products, mineral nutrition",,,1518500014.0,8797041.0,0
+PBH,Prestige Consumer Healthcare Inc. Common Stock,0001295947,NYSE,2834,none,,,,2267818318.0,26120361.0,0
+PCVX,"Vaxcyte, Inc. - Common Stock",0001649094,NASDAQ,2836,none,conjugate vaccine (cell-free protein synthesis platform),VAX-31,phase3,9674575058.0,109952132.0,0
+PHAT,"Phathom Pharmaceuticals, Inc. - Common Stock",0001783183,NASDAQ,2834,none,small molecule,VOQUEZNA (vonoprazan),approved,576823669.0,9945181.0,0
+PRGO,Perrigo Company plc Ordinary Shares,0001585364,NYSE,2834,none,,,,2012154053.0,40555311.0,0
+PTGX,"Protagonist Therapeutics, Inc. - Common Stock",0001377121,NASDAQ,2834,none,constrained peptide (oral peptide),Icotyde (icotrokinra),filed,9053336391.0,89303856.0,0
+PVLA,"Palvella Therapeutics, Inc. - Common Stock",0001583648,NASDAQ,2834,none,small molecule (topical anhydrous gel formulation of rapamycin),QTORIN rapamycin,phase3,1892400123.0,27887421.0,0
+RLAY,"Relay Therapeutics, Inc. - Common Stock",0001812364,NASDAQ,2836,none,small molecule,zovegalisib (RLY-2608),phase3,3815255762.0,49163333.0,0
+RLMD,"Relmada Therapeutics, Inc. - Common Stock",0001553643,NASDAQ,2834,none,controlled-release intravesical drug formulation (gemcitabine/docetaxel),NDV-01,phase2,338143420.0,4246989.0,0
+RYTM,"Rhythm Pharmaceuticals, Inc. - Common Stock",0001649904,NASDAQ,2834,none,cyclic peptide (MC4R agonist),IMCIVREE (setmelanotide),approved,6171900588.0,58677626.0,0
+RZLT,"Rezolute, Inc. - Common Stock (NV)",0001509261,NASDAQ,2834,none,monoclonal antibody (allosteric insulin receptor modulator),ersodetug,phase3,448791612.0,6934271.0,0
+SEPN,"Septerna, Inc. - Common Stock",0001984086,NASDAQ,2834,none,oral small molecule (GPCR-targeted),SEP-479,preclinical,1722379416.0,14736864.0,0
+SGMT,Sagimet Biosciences Inc. - Series A Common Stock,0001400118,NASDAQ,2834,none,small molecule,denifanstat,phase2,632505279.0,10983589.0,0
+SPRY,"ARS Pharmaceuticals, Inc. - Common Stock",0001671858,NASDAQ,2834,none,small molecule (intranasal epinephrine formulation with absorption enhancer),neffy,approved,453479878.0,8420500.0,0
+SRZN,"Surrozen, Inc. - Common Stock",0001824893,NASDAQ,2836,none,"multi-specific antibody (Wnt mimetic, SWAP platform)",SZN-8141,preclinical,328747009.0,13375449.0,0
+STTK,"Shattuck Labs, Inc. - Common Stock",0001680367,NASDAQ,2834,none,monoclonal antibody (DR3 blocking); bispecific antibodies in preclinical development,SL-325,phase1,568055997.0,6908551.0,0
+SVRA,"Savara, Inc. - Common Stock",0001160308,NASDAQ,2834,none,"inhaled recombinant protein (GM-CSF biologic, drug-device combination)",MOLBREEVI (molgramostim),filed,989798418.0,8818754.0,0
+SYRE,"Spyre Therapeutics, Inc. - Common Stock",0001636282,NASDAQ,2834,none,"monoclonal antibody (extended half-life, YTE Fc modification)",SPY001,phase2,7374083800.0,97368459.0,0
+TARS,"Tarsus Pharmaceuticals, Inc. - Common Stock",0001819790,NASDAQ,2836,none,small molecule,"XDEMVY (lotilaner ophthalmic solution, formerly TP-03)",approved,3379295764.0,64309528.0,0
+TECX,"Tectonic Therapeutic, Inc. - Common Stock",0001681087,NASDAQ,2836,none,Fc-fusion protein (relaxin fusion); VHH-Fc antibody,TX45,phase2,444748077.0,4995468.0,0
+TNGX,"Tango Therapeutics, Inc. - Common Stock",0001819133,NASDAQ,2834,none,small molecule,vopimetostat (TNG462),phase1,3805535932.0,59851148.0,0
+TRVI,"Trevi Therapeutics, Inc. - Common Stock",0001563880,NASDAQ,2834,none,small molecule,Haduvio (oral nalbuphine ER),phase2,1827252634.0,25902665.0,0
+TTRX,Turn Therapeutics Inc. - Common Stock,0002023016,NASDAQ,2834,none,topical polymer formulation (polyhexanide/PHMB in petrolatum base),GX-03,phase2,345888159.0,1272263.0,0
+TVTX,"Travere Therapeutics, Inc. - Common Stock",0001438533,NASDAQ,2834,none,small molecule,FILSPARI (sparsentan),approved,4905346794.0,82480799.0,0
+VERA,"Vera Therapeutics, Inc. - Class A Common Stock",0001831828,NASDAQ,2834,none,"fusion protein (TACI-Fc, dual BAFF/APRIL inhibitor)",atacicept,filed,2142442917.0,65977023.0,0
+VKTX,"Viking Therapeutics, Inc. - Common Stock",0001607678,NASDAQ,2834,none,,,,3526292352.0,113598272.0,0
+VRDN,"Viridian Therapeutics, Inc.  - Common Stock",0001590750,NASDAQ,2834,none,monoclonal antibody (IGF-1R antagonist; Fc fragment/bispecific FcRn inhibitors; anti-TSHR antibody),veligrotug,filed,2077780231.0,31510394.0,0
+XERS,"Xeris Biopharma Holdings, Inc. - Common Stock",0001867096,NASDAQ,2834,none,small molecule (levothyroxine in XeriSol non-aqueous subcutaneous formulation),XP-8121,phase2,1857843842.0,22061145.0,0
+ZBIO,"Zenas BioPharma, Inc. - Common Stock",0001953926,NASDAQ,2834,none,bifunctional monoclonal antibody (CD19/FcγRIIb),obexelimab,phase3,1656619798.0,19217730.0,0
+ZURA,Zura Bio Limited - Class A Ordinary shares,0001855644,NASDAQ,2836,none,"bispecific antibody (humanized IgG4 scFv bispecific, IL-17A/BAFF)",tibulizumab (ZB-106),phase2,395774347.0,5911059.0,0

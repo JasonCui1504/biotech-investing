@@ -10,7 +10,7 @@ from datetime import date, timedelta
 import pandas as pd
 
 from app.config import load_config
-from app.db import run_query
+from app.db import get_connection, run_query
 
 
 # ------------------------------------------------------- pure calculations
@@ -223,6 +223,36 @@ def run_screens(tickers=None):
             "ev_cash_flag": ev_cash is not None and ev_cash < 1.5,
         })
     return pd.DataFrame(records)
+
+
+def snapshot_features(frame, rnpv_ratios=None, snapshot_date=None):
+    """Save today's screen outputs per ticker into daily_features (safe to rerun the same day).
+
+    After a year this table is the training set for narrow models; every row only uses
+    information available on its date. rnpv_ratios: {ticker: base rNPV/EV ratio}.
+    """
+    snapshot_date = snapshot_date or date.today().isoformat()
+    rnpv_ratios = rnpv_ratios or {}
+    rows = []
+    for r in frame.to_dict("records"):
+        rows.append((r["ticker"], snapshot_date, none_if_nan(r["runway_months"]), none_if_nan(r["ev_to_cash"]),
+                     rnpv_ratios.get(r["ticker"]), none_if_nan(r["return_30d"]), none_if_nan(r["return_90d"]),
+                     none_if_nan(r["volatility_30d"]), none_if_nan(r["dilution_1y_pct"]),
+                     none_if_nan(r["market_cap_m"])))
+    conn = get_connection()
+    conn.executemany("INSERT OR REPLACE INTO daily_features (ticker, date, runway_months, ev_to_cash, "
+                     "rnpv_ratio, price_return_30d, price_return_90d, volatility_30d, dilution_1y_pct, "
+                     "market_cap_m) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", rows)
+    conn.commit()
+    conn.close()
+    return len(rows)
+
+
+def none_if_nan(value):
+    """Turn NaN/missing into None so SQLite stores NULL."""
+    if value is None or value != value:
+        return None
+    return float(value)
 
 
 if __name__ == "__main__":

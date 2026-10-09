@@ -194,6 +194,21 @@ CREATE TABLE IF NOT EXISTS event_reactions (
     excess_5d REAL
 )"""
 
+CREATE_DAILY_FEATURES = """
+CREATE TABLE IF NOT EXISTS daily_features (
+    ticker TEXT,
+    date TEXT,
+    runway_months REAL,
+    ev_to_cash REAL,
+    rnpv_ratio REAL,
+    price_return_30d REAL,
+    price_return_90d REAL,
+    volatility_30d REAL,
+    dilution_1y_pct REAL,
+    market_cap_m REAL,
+    PRIMARY KEY (ticker, date)
+)"""
+
 # Columns added after the first version. create_tables() adds them to older databases.
 EXTRA_COLUMNS = [
     ("assets", "peak_sales_source", "TEXT"),                 # 'user_csv' when the user supplied it
@@ -206,6 +221,7 @@ ALL_TABLES = [
     CREATE_TRIAL_SNAPSHOTS, CREATE_FILINGS, CREATE_FINANCIALS, CREATE_PRICES,
     CREATE_NEWS_ITEMS, CREATE_EVENTS, CREATE_CATALYSTS, CREATE_CLAUDE_CACHE,
     CREATE_CLAUDE_USAGE, CREATE_RECOMMENDATIONS, CREATE_EVENT_REACTIONS,
+    CREATE_DAILY_FEATURES,
 ]
 
 
@@ -221,7 +237,8 @@ def get_connection(db_path=None):
     folder = os.path.dirname(db_path)
     if folder:
         os.makedirs(folder, exist_ok=True)
-    conn = sqlite3.connect(db_path)
+    # Wait up to 60s if another process is writing, instead of failing with 'database is locked'.
+    conn = sqlite3.connect(db_path, timeout=60)
     conn.row_factory = sqlite3.Row
     return conn
 

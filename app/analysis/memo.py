@@ -16,7 +16,8 @@ from app.analysis.rnpv import load_peak_sales_csv, rnpv_vs_ev
 from app.analysis.screens import get_upcoming_catalysts, run_screens
 from app.claude_utils import call_claude_text
 from app.config import load_config, project_path, setup_logging
-from app.db import create_tables, get_connection, run_query
+from app.db import create_tables, run_query
+from app.tracking.recommendations import log_recommendation
 
 log = logging.getLogger(__name__)
 
@@ -151,8 +152,9 @@ def rnpv_lines(ticker, refs):
     refs.add(ref)
     lines.append(f"- rNPV/EV ratio low/base/high: {fmt_number(result['ratio_low'], 2)} / "
                  f"{fmt_number(result['ratio_base'], 2)} / {fmt_number(result['ratio_high'], 2)} {ref}")
-    lines.append(f"- {result['assets_valued']} of {result['assets_total']} assets valued; "
-                 f"{result['llm_share_pct']:.0f}% of valued assets use LLM peak-sales suggestions (unverified)")
+    lines.append(f"- {result['assets_valued']} pipeline assets valued from peak sales "
+                 f"({result['llm_share_pct']:.0f}% use LLM suggestions, unverified); marketed products valued from "
+                 f"trailing reported revenue: {fmt_money(result['commercial_value_usd'])}")
     return lines
 
 
@@ -171,23 +173,12 @@ def extract_section(memo_text, heading):
 
 
 def log_paper_candidate(ticker, memo_text):
-    """Save a PAPER_BUY_CANDIDATE verdict to recommendations (once per ticker per day)."""
-    today = date.today().isoformat()
-    if run_query("SELECT 1 FROM recommendations WHERE ticker = ? AND rec_date = ?", (ticker, today)):
-        return False
-    price = run_query("SELECT close FROM prices WHERE ticker = ? ORDER BY date DESC LIMIT 1", (ticker,))
-    conn = get_connection()
-    conn.execute(
-        "INSERT INTO recommendations (ticker, rec_date, action, entry_price, rationale, bull_case, "
-        "bear_case, key_catalyst, target_review_date) VALUES (?, ?, 'BUY_PAPER', ?, ?, ?, ?, ?, ?)",
-        (ticker, today, price[0]["close"] if price else None,
-         extract_section(memo_text, "Summary") + " (LLM memo, unverified)",
-         extract_section(memo_text, "Bull case"), extract_section(memo_text, "Bear case"),
-         extract_section(memo_text, "What would change my mind")[:300],
-         (date.today() + timedelta(days=90)).isoformat()))
-    conn.commit()
-    conn.close()
-    return True
+    """Save a PAPER_BUY_CANDIDATE verdict as a paper recommendation (once per ticker per day)."""
+    rec_id = log_recommendation(
+        ticker, "BUY_PAPER", extract_section(memo_text, "Summary") + " (LLM memo, unverified)",
+        extract_section(memo_text, "Bull case"), extract_section(memo_text, "Bear case"),
+        extract_section(memo_text, "What would change my mind")[:300])
+    return rec_id is not None
 
 
 def generate_memo(screen_row):
