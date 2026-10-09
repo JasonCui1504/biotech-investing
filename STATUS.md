@@ -9,9 +9,9 @@ Research tool only. It never places trades. Research tool output, not financial 
 | 2 | `edgar.py`, `ctgov.py`, `screens.py` | Live on many tickers; ABUS cash bug found and fixed. |
 | 3 | `claude_utils.py`, `extract.py`, `classify.py`, `news.py`, theme tagging | Live smoke test passed; themes tagged. |
 | 4 | `rnpv.py`, `event_study.py`, `memo.py` | Live: rNPV, three cited memos. |
-| 5 | `report.py`, `tracking/`, `run_daily.py`, email (Resend), README, `daily_features` | **Smoke test passed twice, 0 errors, second run added no duplicate rows.** Full-universe run not done yet. |
+| 5 | `report.py`, `tracking/`, `run_daily.py`, email (Resend), README, `daily_features` | **Smoke test passed twice, 0 errors, second run added no duplicate rows. Full-universe runs done (see below).** |
 
-76 tests pass (`python -m pytest`), none need network or keys. Claude spend so far today: about $0.80.
+76 tests pass (`python -m pytest`), none need network or keys. Claude spend on 2026-10-09: $5.04 (daily cap).
 
 ## Universe (2026-10-09)
 - 228 passed the market-cap filter; after theme tagging **137 stay in the universe**: 49 oncology (bispecifics/ADC/radiopharma), 37 genetic medicine, 26 neuropsychiatry, 25 untagged (no 10-K on file, e.g. recent IPOs). 91 were tagged `none` and dropped.
