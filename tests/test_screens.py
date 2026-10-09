@@ -1,5 +1,5 @@
 """Tests for the pure screen calculations (no database needed)."""
-from app.analysis.screens import (compute_burn, compute_enterprise_value, compute_pct_change,
+from app.analysis.screens import (period_end_date, compute_burn, compute_enterprise_value, compute_pct_change,
                                   compute_runway_months, runway_flag)
 
 CONFIG = {"screens": {"min_runway_months_ok": 18, "runway_warning_months": 12}}
@@ -36,3 +36,11 @@ def test_runway_flags():
     assert runway_flag(14, CONFIG) == "WATCH"
     assert runway_flag(8, CONFIG) == "DANGER"
     assert runway_flag(None, CONFIG) == "OK"
+
+
+def test_period_end_date():
+    assert str(period_end_date("2026-10-01", "quarter")) == "2026-12-31"
+    assert str(period_end_date("2026-07-01", "half")) == "2026-12-31"
+    assert str(period_end_date("2026-01-01", "year")) == "2026-12-31"
+    assert str(period_end_date("2026-02-01", "month")) == "2026-02-28"
+    assert str(period_end_date("2026-03-15", "exact")) == "2026-03-15"

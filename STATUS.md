@@ -7,9 +7,9 @@ Research tool only. It never places trades. Research tool output, not financial 
 |---|---|---|
 | 1 | config, db (14 tables), http utils, universe builder, prices | Prices live (XBI, IBB, 3 stocks). Universe pipeline live on a 15-ticker sample. |
 | 2 | `edgar.py`, `ctgov.py`, `screens.py` | Live on SMMT, ACAD, ABUS. ABUS cash bug found and fixed (stale XBRL tag). |
-| 3 | `claude_utils.py`, `extract.py`, `classify.py`, `news.py`, theme tagging | **Offline tests only (fake Claude client). Never run against the real API.** |
+| 3 | `claude_utils.py`, `extract.py`, `classify.py`, `news.py`, theme tagging | **Live smoke test passed 2026-10-09** (details below). Theme tagging not yet run. |
 
-49 tests pass (`python -m pytest`), none need network or keys.
+50 tests pass (`python -m pytest`), none need network or keys.
 
 ## Universe build: finished 2026-10-09
 - 4,459 common stocks -> 4,451 with an SEC CIK -> 567 in biotech SIC codes -> **228 pass the $300M-$10B market cap and $1M/day liquidity filters**.
@@ -19,6 +19,15 @@ Research tool only. It never places trades. Research tool output, not financial 
 - Not in the list: SMMT (market cap about $13.7B, above the ceiling, expected) and RVMD (not checked why; look up its market cap or status).
 - No themes tagged yet (needs the Claude step: `python -m app.ingest.universe --tag-themes`, after running edgar for filings).
 - Some companies may be missing because Yahoo failed or rate-limited (HTTP 429 seen once). Compare against a few names you know.
+
+## Phase 3 live smoke test (2026-10-09, total Claude spend $0.19)
+- Pipeline extraction (Sonnet 5.5) for ACAD, ABUS, KRYS: 10 + 2 + 10 assets, $0.18. Spot checks look right (Daybue approved in Rett syndrome; imdusiran Phase 2 in hepatitis B). Still LLM-extracted: verify against 10-Ks before relying on it.
+- Cache works: rerunning ABUS extraction made no API call (spend unchanged).
+- News classification (Haiku 5.5): 64 headlines in two batches for about $0.01. Tickers assigned only to universe companies.
+- 8-K classification worked on 4 filings (e.g. ACAD RADIANT Phase 2 topline = trial_data_mixed, materiality 4).
+- Bug fixed: catalysts with period precision (quarter/half/year) were treated as past once the period began; the calendar now compares against the period end.
+- Known issue: FierceBiotech and FiercePharma return 403 to this cloud server even with browser headers (IP blocked). Endpoints, STAT and FDA feeds work. Should work from your own computer.
+- Not yet tested live: theme tagging, `extract_press_release` on its own, 8-K path on a large batch.
 
 ## Setup facts
 - SEC contact: `Jason Cui jasoncui1504@gmail.com` (in `.env` in the cloud container; set as an environment variable for new sessions).
@@ -38,7 +47,8 @@ Research tool only. It never places trades. Research tool output, not financial 
 ## Next steps (tomorrow)
 1. Review the universe list (is it plausible? known names present? ~how many per theme).
 2. Run Phase 2 on about 10 real tickers and compare cash and burn with their filings: `python -m app.ingest.edgar --tickers ...`, then `python -m app.analysis.screens --tickers ...`.
-3. Live smoke test of Phase 3 in a session that has the key: classify a day of news, extract 3 pipelines, run twice to confirm the cache, print the cost.
+3. (done) Live smoke test of Phase 3.
+3b. Run theme tagging on the whole universe: `python -m app.ingest.edgar --tickers ALL` then `python -m app.ingest.universe --tag-themes` (est. under $1).
 4. Then Phase 4 (rNPV + `peak_sales_inputs.csv`, event study, memos), then Phase 5 (brief, tracking, `run_daily.py`, Resend email, README).
 
 ## Risks to remember

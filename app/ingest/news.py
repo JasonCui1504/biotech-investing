@@ -19,6 +19,12 @@ from app.http_utils import get_response
 log = logging.getLogger(__name__)
 
 SNIPPET_LENGTH = 500
+# Some news sites return 403 to non-browser clients; the biotech-intel tool uses these headers too.
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    "Accept": "application/rss+xml, application/xml, text/xml, */*",
+}
 
 
 def clean_snippet(html_text):
@@ -49,7 +55,7 @@ def fetch_rss_feeds():
     conn = get_connection()
     new_items = 0
     for feed in load_config()["news"]["rss_feeds"]:
-        response = get_response(feed["url"], headers={"Accept": "application/rss+xml, */*"})
+        response = get_response(feed["url"], headers=BROWSER_HEADERS)
         if response is None:
             log.error("Feed failed: %s", feed["name"])
             continue

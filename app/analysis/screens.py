@@ -158,15 +158,32 @@ def get_price_context(ticker):
     return context
 
 
+def period_end_date(expected_date, precision):
+    """Last day of the period a catalyst date refers to (e.g. 'Q4 2026' -> 2026-12-31).
+
+    Stored dates are the FIRST day of the period, so comparing them to today would
+    wrongly treat a catalyst expected 'in Q4 2026' as past once October 2 arrives.
+    """
+    start = date.fromisoformat(expected_date)
+    months = {"month": 1, "quarter": 3, "half": 6, "year": 12}.get(precision)
+    if months is None or (precision == "year" and expected_date.endswith("12-31")):
+        return start
+    total = start.month - 1 + months
+    next_start = date(start.year + total // 12, total % 12 + 1, 1)
+    return next_start - timedelta(days=1)
+
+
 def get_upcoming_catalysts(days_ahead=120):
     """Catalysts plus trial primary-completion dates in the next days_ahead, sorted by date."""
     today = date.today().isoformat()
     cutoff = (date.today() + timedelta(days=days_ahead)).isoformat()
     rows = []
     for r in run_query("SELECT ticker, asset_name, catalyst_type, expected_date, date_precision "
-                       "FROM catalysts WHERE expected_date BETWEEN ? AND ?", (today, cutoff)):
-        rows.append((r["ticker"], r["expected_date"], r["date_precision"], r["catalyst_type"],
-                     r["asset_name"]))
+                       "FROM catalysts WHERE expected_date <= ?", (cutoff,)):
+        end = period_end_date(r["expected_date"], r["date_precision"]).isoformat()
+        if end >= today:  # the period has not fully passed yet
+            rows.append((r["ticker"], r["expected_date"], r["date_precision"], r["catalyst_type"],
+                         r["asset_name"]))
     for r in run_query("SELECT ticker, nct_id, title, primary_completion_date FROM trials "
                        "WHERE status IN ('RECRUITING','ACTIVE_NOT_RECRUITING','ENROLLING_BY_INVITATION')"):
         end = r["primary_completion_date"] or ""
