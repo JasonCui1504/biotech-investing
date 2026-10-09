@@ -18,6 +18,12 @@ Research tool only. It never places trades. Research tool output, not financial 
 - Saved list with tags: `data/universe_snapshot.csv` (the database itself is not in git).
 - SMMT is above the $10B ceiling; RVMD not checked.
 
+## Full-universe runs (2026-10-09)
+- Free run (`--skip-claude`): 7 min, 0 errors. Run with Claude: about 18 min, 0 errors; stopped at the $5 daily cap (spend $5.04).
+- Extracted 10-K pipelines for 78 companies (487 assets, 198 catalysts). **36 companies with a 10-K still need extraction**; they resume automatically on tomorrow's run (about $2). 25 companies have no 10-K on file.
+- Skipped today because of the cap: peak-sales suggestions for the newly extracted companies, and new memos. So rNPV is only available for ACAD, ABUS, KRYS until tomorrow.
+- Trial coverage: 130 of 137 companies matched in ClinicalTrials.gov (935 trials) after fixing the sponsor-name matching. Verify CYPH -> Leap Therapeutics and KRSA -> Cyclerion Therapeutics (matched via SEC former names). Unmatched: COAG, HELP, KLRA, TRAX, OABI, SDGR, CYRX.
+
 ## Phase 5 notes
 - Daily run: `python -m app.run_daily` (flags: `--skip-claude`, `--tickers`, `--smoke-test`, `--dry-run`). Order and costs are in README.md.
 - Email goes through Resend if `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_TO` are set; otherwise it is skipped with a log line. Not tested live.
