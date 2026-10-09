@@ -24,6 +24,11 @@ def get_env(name, default=None):
     return value
 
 
+def get_anthropic_key():
+    """Return the Anthropic API key (BIOTECH_ANTHROPIC_API_KEY first, then ANTHROPIC_API_KEY)."""
+    return get_env("BIOTECH_ANTHROPIC_API_KEY") or get_env("ANTHROPIC_API_KEY")
+
+
 def project_path(relative_path):
     """Turn a path relative to the project root into an absolute path."""
     return os.path.join(PROJECT_ROOT, relative_path)

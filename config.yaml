@@ -17,7 +17,7 @@ universe:
 claude:
   model_fast: claude-haiku-5-5
   model_smart: claude-sonnet-5-5
-  max_tokens_default: 2000
+  max_tokens_default: 8000             # thinking tokens also count against this limit
   daily_budget_usd: 5.00               # stop making Claude calls past this and warn
 
 benchmark_ticker: XBI

@@ -201,15 +201,57 @@ def print_summary():
     conn.close()
 
 
+# ---------------------------------------------------------- theme tagging
+
+def tag_themes(max_companies=None):
+    """Ask Claude which theme each untagged company fits; 'none' removes it from the universe.
+
+    Needs filings from edgar.py first. Results are LLM-extracted: treat the tags as unverified.
+    """
+    from app.analysis.classify_prompts import THEME_SYSTEM_PROMPT
+    from app.analysis.extract import get_latest_10k_text
+    from app.claude_utils import call_claude_json
+    config = load_config()
+    theme_lines = "\n".join(f"{t['name']}: {t['description']}" for t in config["universe"]["themes"])
+    valid = [t["name"] for t in config["universe"]["themes"]] + ["none"]
+    rows = get_connection().execute(
+        "SELECT ticker FROM companies WHERE in_universe = 1 AND theme IS NULL").fetchall()
+    conn = get_connection()
+    tagged = 0
+    for row in rows[:max_companies]:
+        document = get_latest_10k_text(row["ticker"])
+        if document is None:
+            continue
+        result = call_claude_json(f"theme:{row['ticker']}", config["claude"]["model_fast"],
+                                  THEME_SYSTEM_PROMPT, f"THEMES:\n{theme_lines}\n\nBUSINESS:\n{document[1]}")
+        if not isinstance(result, dict) or result.get("theme") not in valid:
+            continue
+        in_universe = 0 if result["theme"] == "none" else 1
+        conn.execute("UPDATE companies SET theme=?, modality=?, lead_asset=?, lead_phase=?, "
+                     "in_universe=? WHERE ticker=?",
+                     (result["theme"], result.get("modality"), result.get("lead_asset"),
+                      result.get("lead_phase"), in_universe, row["ticker"]))
+        conn.commit()
+        tagged += 1
+    conn.close()
+    print(f"Tagged {tagged} companies")
+    print_summary()
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build or refresh the biotech universe.")
     parser.add_argument("--refresh", action="store_true", help="rebuild the universe")
+    parser.add_argument("--tag-themes", action="store_true", help="tag themes with Claude")
     parser.add_argument("--max-tickers", type=int, default=None,
                         help="stop after this many SIC-matching tickers (for quick tests)")
     args = parser.parse_args()
     setup_logging()
     if args.refresh:
         refresh_universe(args.max_tickers)
+    elif args.tag_themes:
+        tag_themes(args.max_tickers)
     else:
         parser.print_help()
         print_summary()
+
+
