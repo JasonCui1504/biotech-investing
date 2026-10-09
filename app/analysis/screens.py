@@ -198,6 +198,12 @@ def get_upcoming_catalysts(days_ahead=120):
 
 # ------------------------------------------------------------- full screen
 
+SCREEN_COLUMNS = [
+    "ticker", "cash_m", "burn_per_qtr_m", "runway_months", "market_cap_m", "ev_to_cash", "dilution_1y_pct",
+    "dilution_3y_pct", "pct_off_high", "return_30d", "return_90d", "volatility_30d", "runway_flag",
+    "catalyst_in_window", "ev_cash_flag"]
+
+
 def run_screens(tickers=None):
     """Compute every metric for in-universe tickers; returns one DataFrame with flags."""
     config = load_config()
@@ -222,7 +228,7 @@ def run_screens(tickers=None):
             "catalyst_in_window": ticker in catalyst_tickers,
             "ev_cash_flag": ev_cash is not None and ev_cash < 1.5,
         })
-    return pd.DataFrame(records)
+    return pd.DataFrame(records, columns=SCREEN_COLUMNS)
 
 
 def snapshot_features(frame, rnpv_ratios=None, snapshot_date=None):
