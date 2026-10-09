@@ -54,3 +54,18 @@ def test_name_matching():
 def test_loose_dates():
     assert str(parse_loose_date("2026-12")) == "2026-12-01"
     assert parse_loose_date("garbage") is None
+
+
+def test_suffix_phrases_and_subsidiary_names():
+    assert normalize_name("Alto Neuroscience, Inc. Common Stock") == "alto neuroscience"
+    assert normalize_name("Arcturus Therapeutics Holdings Inc.") == "arcturus therapeutics"
+    assert match_sponsor("Alvotech Swiss AG", "Alvotech") == "prefix"
+    assert match_sponsor("Apollo Hospitals", "Apollo") is None   # too short to trust a prefix match
+    assert match_sponsor("Jett Foundation, Inc.", "Capricor Therapeutics") is None
+
+
+def test_foreign_suffixes_and_reverse_prefix():
+    assert normalize_name("Immatics N.V.") == "immatics"
+    assert normalize_name("Oculis Holding AG") == "oculis"
+    assert match_sponsor("Capricor, Inc.", "Capricor Therapeutics, Inc.") == "prefix"
+    assert match_sponsor("Scholar Rock, Inc.", "Scholar Rock Holding Corporation") == "exact"

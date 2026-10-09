@@ -24,16 +24,18 @@ STUDY_FIELDS = ("NCTId,BriefTitle,OverallStatus,Phase,EnrollmentCount,PrimaryOut
                 "PrimaryCompletionDate,LastUpdatePostDate,LeadSponsorName,CollaboratorName")
 KEEP_PHASES = ["PHASE1", "PHASE2", "PHASE3"]
 FUZZY_THRESHOLD = 90
-COMPANY_SUFFIXES = ["common stock", "ordinary shares", "inc", "corp", "corporation", "ltd",
-                    "limited", "plc", "co", "company", "holdings", "therapeutics inc"]
+COMPANY_SUFFIXES = ["inc", "corp", "corporation", "ltd", "limited", "plc", "co", "company", "holdings",
+                    "holding", "group", "ag", "gmbh", "sa", "bv", "nv", "ab", "aps", "llc", "lp"]
 BAD_STATUSES = ["TERMINATED", "SUSPENDED", "WITHDRAWN"]
 
 
 # ----------------------------------------------------------- name matching
 
 def normalize_name(name):
-    """Lowercase, drop punctuation and company suffixes like 'Inc.' / 'Corp.'."""
-    text = re.sub(r"[^a-z0-9 ]", " ", name.lower())
+    """Lowercase, drop punctuation and company suffixes like 'Inc.' / 'Corp.' / 'Common Stock'."""
+    text = re.sub(r"\b([nb])\.\s?v\.?", r"\1v", name.lower())  # "N.V." / "B.V." -> "nv" / "bv"
+    text = re.sub(r"[^a-z0-9 ]", " ", text)
+    text = re.sub(r"\b(common stock|ordinary shares|class a|class b)\b", " ", text)
     words = [w for w in text.split() if w not in COMPANY_SUFFIXES]
     return " ".join(words)
 
@@ -44,13 +46,21 @@ def clean_company_name(name):
 
 
 def match_sponsor(sponsor_name, company_name):
-    """Return 'exact', 'fuzzy', or None for how a sponsor name matches a company."""
+    """Return 'exact', 'fuzzy', 'prefix', or None for how a sponsor name matches a company.
+
+    'prefix' catches subsidiaries such as 'Alvotech Swiss AG' for 'Alvotech'. It needs a
+    company name of at least 8 characters so short names do not match unrelated sponsors.
+    """
     a = normalize_name(sponsor_name)
     b = normalize_name(company_name)
     if a == b:
         return "exact"
     if fuzz.ratio(a, b) >= FUZZY_THRESHOLD:
         return "fuzzy"
+    if len(b) >= 8 and a.startswith(b + " "):
+        return "prefix"
+    if len(a) >= 8 and b.startswith(a + " "):  # sponsor "Capricor" for company "Capricor Therapeutics"
+        return "prefix"
     return None
 
 
@@ -112,22 +122,47 @@ def get_sponsor_names(study):
 
 # ----------------------------------------------------------------- aliases
 
+def get_former_names(ticker):
+    """Former company names recorded by the SEC (a company may register trials under an old name)."""
+    rows = run_query("SELECT cik FROM companies WHERE ticker = ?", (ticker,))
+    if not rows:
+        return []
+    data = get_json(f"https://data.sec.gov/submissions/CIK{rows[0]['cik']}.json", pause_seconds=0.15)
+    return [item["name"] for item in (data or {}).get("formerNames", [])]
+
+
+def search_and_match(ticker, names):
+    """Search the registry for each name; return (matched, unmatched) sponsor lists."""
+    seen, matched, unmatched = set(), [], []
+    for name in names:
+        query = normalize_name(name)
+        studies = search_studies(query, max_pages=2)
+        if not studies and len(query.split()) > 1 and len(query.split()[0]) >= 5:
+            studies = search_studies(query.split()[0], max_pages=2)  # retry with just the first word
+        for study in studies:
+            for sponsor in get_sponsor_names(study):
+                if sponsor in seen:
+                    continue
+                seen.add(sponsor)
+                methods = [match_sponsor(sponsor, candidate) for candidate in names]
+                method = next((m for m in methods if m), None)
+                if method:
+                    matched.append((sponsor, ticker, method))
+                else:
+                    unmatched.append((sponsor, ticker))
+    return matched, unmatched
+
+
 def build_aliases(ticker, company_name):
-    """Find sponsor names that belong to a company; returns (matched, unmatched) lists."""
-    short_name = clean_company_name(company_name)
-    seen = set()
-    matched = []
-    unmatched = []
-    for study in search_studies(short_name, max_pages=2):
-        for sponsor in get_sponsor_names(study):
-            if sponsor in seen:
-                continue
-            seen.add(sponsor)
-            method = match_sponsor(sponsor, short_name)
-            if method:
-                matched.append((sponsor, ticker, method))
-            else:
-                unmatched.append((sponsor, ticker))
+    """Find sponsor names that belong to a company; returns (matched, unmatched) lists.
+
+    Tries the current name first; only if nothing matches does it also try the SEC's former names.
+    """
+    names = [clean_company_name(company_name)]
+    matched, unmatched = search_and_match(ticker, names)
+    if not matched:
+        names += get_former_names(ticker)
+        matched, unmatched = search_and_match(ticker, names)
     return matched, unmatched
 
 
