@@ -40,3 +40,10 @@ def test_format_expected_shows_period_not_a_fake_date():
     assert format_expected("2026-10-01", "quarter") == "Q4 2026"
     assert format_expected("2026-03-01", "month") == "2026-03"
     assert format_expected("2026-03-15", "exact") == "2026-03-15"
+
+
+def test_brief_to_html_renders_tables_and_headings_with_inline_styles():
+    from app.report import brief_to_html
+    out = brief_to_html("# Title\n\n## 1. Part\n\n| A | B |\n|---|---|\n| 1 | <x> |\n\n- **T** ok\n")
+    assert "<table style=" in out and "<h2 style=" in out and "<li style=" in out
+    assert "&lt;x&gt;" in out and "<x>" not in out

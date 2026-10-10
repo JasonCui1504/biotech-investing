@@ -3,10 +3,13 @@
 Run:  python -m app.report            (writes reports/YYYY-MM-DD_brief.md from current data)
 """
 import glob
+import html
 import logging
 import os
+import re
 from datetime import date, timedelta
 
+import markdown
 import pandas as pd
 import requests
 
@@ -222,6 +225,30 @@ def build_brief(health=None, skip_claude=False, tickers=None):
     return path
 
 
+# Mail clients drop <style> blocks, so styles are inlined onto each tag.
+EMAIL_STYLES = {
+    "h1": "font-size:22px;margin:0 0 16px;color:#111;",
+    "h2": "font-size:17px;margin:28px 0 8px;padding-bottom:4px;border-bottom:1px solid #ddd;color:#111;",
+    "p": "margin:0 0 12px;",
+    "ul": "margin:0 0 12px;padding-left:22px;",
+    "li": "margin:0 0 4px;",
+    "table": "border-collapse:collapse;width:100%;margin:0 0 12px;font-size:13px;",
+    "th": "text-align:left;padding:6px 8px;background:#f2f4f7;border:1px solid #ddd;white-space:nowrap;",
+    "td": "padding:6px 8px;border:1px solid #ddd;vertical-align:top;",
+    "a": "color:#1a5fb4;",
+    "hr": "border:0;border-top:1px solid #ddd;margin:24px 0 12px;",
+}
+
+
+def brief_to_html(text):
+    """Convert the markdown brief to an inline-styled HTML email body."""
+    body = markdown.markdown(html.escape(text, quote=False), extensions=["tables"])
+    for tag, style in EMAIL_STYLES.items():
+        body = re.sub(rf"<{tag}(?=[\s>/])", f'<{tag} style="{style}"', body)
+    return ('<div style="font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-size:14px;'
+            f'line-height:1.5;color:#222;max-width:760px;margin:0 auto;padding:16px;">{body}</div>')
+
+
 def send_brief_email(path):
     """Email the brief through Resend's HTTP API; returns True if sent. Needs the 3 env vars."""
     api_key, sender, recipient = get_env("RESEND_API_KEY"), get_env("EMAIL_FROM"), get_env("EMAIL_TO")
@@ -234,7 +261,8 @@ def send_brief_email(path):
         response = requests.post("https://api.resend.com/emails", timeout=30,
                                  headers={"Authorization": f"Bearer {api_key}"},
                                  json={"from": sender, "to": [recipient],
-                                       "subject": f"Biotech brief {date.today().isoformat()}", "text": body})
+                                       "subject": f"Biotech brief {date.today().isoformat()}",
+                                       "html": brief_to_html(body), "text": body})
         response.raise_for_status()
         return True
     except requests.RequestException as error:
