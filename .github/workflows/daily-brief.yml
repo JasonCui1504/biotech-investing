@@ -1,0 +1,103 @@
+name: Daily biotech brief
+
+on:
+  schedule:
+    # 11:00 and 12:00 UTC on weekdays; the "gate" step lets only the run that lands at 7am US Eastern continue
+    - cron: "0 11 * * 1-5"
+    - cron: "0 12 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      skip_claude:
+        description: "Skip Claude steps (free run)"
+        type: boolean
+        default: false
+      refresh_universe:
+        description: "Rebuild the company universe first (slow, ~15-30 min)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: daily-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+      EMAIL_TO: ${{ secrets.EMAIL_TO }}
+    steps:
+      - name: Gate to 7am US Eastern
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(TZ=America/New_York date +%H)" = "07" ]; then
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Not 7am Eastern; skipping this trigger."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        if: steps.gate.outputs.go == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Restore database
+        if: steps.gate.outputs.go == 'true'
+        id: restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/*.db
+            data/*.json
+            data/alias_review.csv
+          key: biotech-state-${{ github.run_id }}
+          restore-keys: biotech-state-
+
+      - name: Build universe (first run, or when requested)
+        if: steps.gate.outputs.go == 'true' && (steps.restore.outputs.cache-matched-key == '' || inputs.refresh_universe == true)
+        run: python -m app.ingest.universe --refresh
+
+      - name: Run daily pipeline
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          if [ "${{ inputs.skip_claude }}" = "true" ]; then
+            python -m app.run_daily --skip-claude
+          else
+            python -m app.run_daily
+          fi
+
+      - name: Save database
+        if: steps.gate.outputs.go == 'true' && always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/*.db
+            data/*.json
+            data/alias_review.csv
+          key: biotech-state-${{ github.run_id }}
+
+      - name: Upload reports and logs
+        if: steps.gate.outputs.go == 'true' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brief-${{ github.run_id }}
+          path: |
+            reports/
+            logs/
+            data/*.db
+          retention-days: 30
+          if-no-files-found: ignore
