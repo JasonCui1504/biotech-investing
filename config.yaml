@@ -69,12 +69,17 @@ memos:
 tracking:
   starting_capital_usd: 100000
 
-watchlist_score_weights:                     # points added/removed in the daily brief ranking
-  catalyst_in_window: 2
-  low_ev_to_cash: 2
-  healthy_runway: 1
-  rnpv_above_1: 2
+watchlist_score_weights:                     # MAXIMUM points per factor; each factor scales with how strong it is
+  catalyst_in_window: 3                      # scaled by catalyst type (PDUFA/data > phase start) and date precision
+  low_ev_to_cash: 2.5                        # full points at EV/cash <= 0, fading to 0 at 3
+  healthy_runway: 1.5                        # full points at 36+ months, fading to 0 at 12
+  rnpv_above_1: 2                            # 1 point at ratio 1, up to the max at ratio 3 (inputs are unverified)
   recent_insider_buying: 0                   # Form 4 parsing not built yet
-  runway_danger: -3
-  large_dilution: -2                         # share count up more than 20% in a year
+  runway_danger: -3                          # full penalty at 0 months, fading to 0 at 12
+  large_dilution: -3                         # full penalty at 60%+ share count growth in a year, starts above 10%
   negative_trial_change: -2                  # trial change with materiality >= 4 in 30 days
+  momentum: 1                                # 90-day price return, full points at +/-40%
+
+rating_thresholds:                           # daily BUY / HOLD / SELL signal from the score (paper research only)
+  buy: 4.0                                   # score at or above -> BUY
+  sell: 0.0                                  # score at or below -> SELL, in between -> HOLD

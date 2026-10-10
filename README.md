@@ -99,7 +99,7 @@ event is the first extraction of every company's 10-K (about 130 companies x $0.
 `daily_budget_usd` cap ($5) spreads over two days; unprocessed filings simply continue the next day.
 Results are cached, so the same document is never paid for twice. Prompt caching is not used yet.
 
-## Scheduling (not set up for you)
+## Scheduling
 
 macOS/Linux cron (weekdays 7:00; edit paths):
 ```

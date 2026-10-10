@@ -209,6 +209,15 @@ CREATE TABLE IF NOT EXISTS daily_features (
     PRIMARY KEY (ticker, date)
 )"""
 
+CREATE_DAILY_RATINGS = """
+CREATE TABLE IF NOT EXISTS daily_ratings (
+    ticker TEXT,
+    date TEXT,
+    score REAL,
+    rating TEXT,                 -- BUY / HOLD / SELL (research signal, paper only)
+    PRIMARY KEY (ticker, date)
+)"""
+
 # Columns added after the first version. create_tables() adds them to older databases.
 EXTRA_COLUMNS = [
     ("assets", "peak_sales_source", "TEXT"),                 # 'user_csv' when the user supplied it
@@ -221,7 +230,7 @@ ALL_TABLES = [
     CREATE_TRIAL_SNAPSHOTS, CREATE_FILINGS, CREATE_FINANCIALS, CREATE_PRICES,
     CREATE_NEWS_ITEMS, CREATE_EVENTS, CREATE_CATALYSTS, CREATE_CLAUDE_CACHE,
     CREATE_CLAUDE_USAGE, CREATE_RECOMMENDATIONS, CREATE_EVENT_REACTIONS,
-    CREATE_DAILY_FEATURES,
+    CREATE_DAILY_FEATURES, CREATE_DAILY_RATINGS,
 ]
 
 

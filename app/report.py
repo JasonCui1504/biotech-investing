@@ -18,7 +18,7 @@ from app.analysis.rnpv import rnpv_vs_ev
 from app.analysis.screens import get_upcoming_catalysts, run_screens
 from app.claude_utils import call_claude_text, get_todays_spend
 from app.config import get_env, load_config, project_path, setup_logging
-from app.db import create_tables, run_query
+from app.db import create_tables, get_connection, run_query
 from app.tracking.performance import build_performance_text
 
 log = logging.getLogger(__name__)
@@ -45,29 +45,84 @@ def markdown_table(headers, rows):
 
 # ------------------------------------------------------------ watchlist score
 
+def _num(value):
+    """Float or None (treats NaN/None as missing)."""
+    return None if value is None or value != value else float(value)
+
+
+def _ramp(value, low, high):
+    """0 at/below low, 1 at/above high, linear in between."""
+    return min(1.0, max(0.0, (value - low) / (high - low)))
+
+
 def score_company(row, flags, weights):
     """Return (score, components) for one company; components explain every point.
 
+    Each factor scales with how strong it is (weights are the maximum points).
     row: dict from run_screens plus rnpv_base_ratio. flags: dict with negative_trial_change.
     """
     components = []
-    if row["catalyst_in_window"]:
-        components.append(("catalyst in window", weights["catalyst_in_window"]))
-    if row["ev_cash_flag"]:
-        components.append(("low EV/cash", weights["low_ev_to_cash"]))
-    if row["runway_flag"] == "OK" and row["runway_months"] == row["runway_months"] and row["runway_months"]:
-        components.append(("healthy runway", weights["healthy_runway"]))
-    ratio = row.get("rnpv_base_ratio")
+
+    def add(name, points):
+        if round(points, 1) != 0:
+            components.append((name, round(points, 1)))
+
+    if row.get("catalyst_in_window"):
+        add("catalyst in window", weights["catalyst_in_window"] * (row.get("catalyst_weight") or 0.5))
+    ev_cash = _num(row.get("ev_to_cash"))
+    if ev_cash is not None:
+        add("cheap vs cash (EV/cash)", weights["low_ev_to_cash"] * (1 - _ramp(ev_cash, 0, 3)))
+    runway = _num(row.get("runway_months"))
+    if runway:
+        if runway >= 12:
+            add("cash runway", weights["healthy_runway"] * _ramp(runway, 12, 36))
+        else:
+            add("short cash runway", weights["runway_danger"] * (1 - runway / 12))
+    ratio = _num(row.get("rnpv_base_ratio"))
     if ratio is not None and ratio > 1:
-        components.append(("rNPV/EV above 1", weights["rnpv_above_1"]))
-    if row["runway_flag"] == "DANGER":
-        components.append(("runway under 12 months", weights["runway_danger"]))
-    dilution = row.get("dilution_1y_pct")
-    if dilution is not None and dilution == dilution and dilution > 20:
-        components.append(("large dilution (1y)", weights["large_dilution"]))
+        add("rNPV/EV above 1", 1 + (weights["rnpv_above_1"] - 1) * _ramp(ratio, 1, 3))
+    dilution = _num(row.get("dilution_1y_pct"))
+    if dilution is not None and dilution > 10:
+        add("dilution (1y)", weights["large_dilution"] * _ramp(dilution, 10, 60))
+    momentum = _num(row.get("return_90d"))
+    if momentum is not None:
+        add("90-day price momentum", weights.get("momentum", 0) * max(-1.0, min(1.0, momentum / 40)))
     if flags.get("negative_trial_change"):
-        components.append(("negative trial change", weights["negative_trial_change"]))
-    return sum(points for _, points in components), components
+        add("negative trial change", weights["negative_trial_change"])
+    return round(sum(points for _, points in components), 1), components
+
+
+def rating_for(score, thresholds):
+    """BUY / HOLD / SELL research signal from a score."""
+    if score >= thresholds["buy"]:
+        return "BUY"
+    if score <= thresholds["sell"]:
+        return "SELL"
+    return "HOLD"
+
+
+def previous_ratings(today):
+    """{ticker: rating} from the most recent earlier day that has ratings."""
+    rows = run_query("SELECT ticker, rating FROM daily_ratings WHERE date = "
+                     "(SELECT MAX(date) FROM daily_ratings WHERE date < ?)", (today,))
+    return {r["ticker"]: r["rating"] for r in rows}
+
+
+def save_ratings(ranked, today):
+    """Store today's score and rating per ticker (safe to rerun the same day)."""
+    with get_connection() as conn:
+        conn.executemany("INSERT OR REPLACE INTO daily_ratings (ticker, date, score, rating) VALUES (?, ?, ?, ?)",
+                         [(r["ticker"], today, score, rating) for score, r, _, rating in ranked])
+
+
+def change_label(rating, previous):
+    """Marker showing how today's rating differs from the previous day's."""
+    if previous is None:
+        return "new"
+    if previous == rating:
+        return "no change"
+    order = {"SELL": 0, "HOLD": 1, "BUY": 2}
+    return f"{'UPGRADE' if order[rating] > order[previous] else 'DOWNGRADE'} (was {previous})"
 
 
 def get_negative_trial_tickers():
@@ -87,18 +142,23 @@ def get_latest_verdict(ticker):
         return parse_verdict(f.read()) or "-"
 
 
-def build_watchlist(screens, top_n=12):
-    """Rank companies by score; returns a list of (score, row, components) sorted high to low."""
-    weights = load_config()["watchlist_score_weights"]
+def build_watchlist(screens, today=None):
+    """Score and rate every company; returns [(score, row, components, rating)] sorted high to low.
+
+    Saves today's ratings so tomorrow's brief can show what changed.
+    """
+    config = load_config()
+    weights, thresholds = config["watchlist_score_weights"], config["rating_thresholds"]
     negative = get_negative_trial_tickers()
     ranked = []
     for row in screens.to_dict("records"):
         result = rnpv_vs_ev(row["ticker"])
         row["rnpv_base_ratio"] = result["ratio_base"] if result else None
         score, components = score_company(row, {"negative_trial_change": row["ticker"] in negative}, weights)
-        ranked.append((score, row, components))
+        ranked.append((score, row, components, rating_for(score, thresholds)))
     ranked.sort(key=lambda item: item[0], reverse=True)
-    return ranked[:top_n]
+    save_ratings(ranked, today or date.today().isoformat())
+    return ranked
 
 
 # ------------------------------------------------------------------- sections
@@ -154,16 +214,25 @@ def section_catalysts():
     return markdown_table(["Expected", "Precision", "Ticker", "Type", "Detail"], rows)
 
 
-def section_watchlist(ranked):
-    """Ranking table plus the score components behind each rank."""
+def section_watchlist(ranked, previous, top_n=12):
+    """Top of the ranking with BUY/HOLD/SELL and what changed since yesterday, plus every rating change."""
+    counts = {name: sum(1 for item in ranked if item[3] == name) for name in ("BUY", "HOLD", "SELL")}
+    changed = [item for item in ranked if previous and previous.get(item[1]["ticker"]) not in (None, item[3])]
+    shown = ranked[:top_n] + [item for item in changed if item not in ranked[:top_n]]
     rows = []
-    for score, r, components in ranked:
-        rows.append([r["ticker"], score, format_number(r["runway_months"]), format_number(r["ev_to_cash"]),
+    for score, r, components, rating in shown:
+        rows.append([r["ticker"], f"**{rating}**", change_label(rating, previous.get(r["ticker"]) if previous else None),
+                     score, format_number(r["runway_months"]), format_number(r["ev_to_cash"]),
                      format_number(r["rnpv_base_ratio"], 2), get_latest_verdict(r["ticker"])])
-    table = markdown_table(["Ticker", "Score", "Runway (mo)", "EV/cash", "rNPV/EV (base)", "Latest memo verdict"], rows)
-    why = "\n".join(f"- **{r['ticker']}** {score:+d}: " + (", ".join(f"{name} ({points:+d})"
-                    for name, points in components) or "no scoring factors") for score, r, components in ranked)
-    return (table + "\n\n_rNPV/EV rests on unverified LLM peak-sales suggestions unless you supplied the numbers._"
+    table = markdown_table(["Ticker", "Rating", "vs yesterday", "Score", "Runway (mo)", "EV/cash",
+                            "rNPV/EV (base)", "Latest memo verdict"], rows)
+    why = "\n".join(f"- **{r['ticker']}** {rating} {score:+.1f}: " + (", ".join(f"{name} ({points:+.1f})"
+                    for name, points in components) or "no scoring factors") for score, r, components, rating in shown)
+    note = ("Yesterday's ratings are not available yet, so every rating is new today." if not previous else
+            f"{len(changed)} rating change(s) since the last brief; changed names outside the top {top_n} are included below it.")
+    return (f"Ratings across {len(ranked)} companies: {counts['BUY']} BUY, {counts['HOLD']} HOLD, {counts['SELL']} SELL. {note}\n\n"
+            + table + "\n\n_BUY/HOLD/SELL is a research signal from the score (paper trading only), not financial advice. "
+            "rNPV/EV rests on unverified LLM peak-sales suggestions unless you supplied the numbers._"
             "\n\nScore components:\n" + why)
 
 
@@ -205,6 +274,7 @@ def build_brief(health=None, skip_claude=False, tickers=None):
     since = (date.today() - timedelta(days=1)).isoformat()
     screens = run_screens(tickers)
     ranked = build_watchlist(screens)
+    previous = previous_ratings(today)
     facts = {"events": len(run_query("SELECT 1 FROM events WHERE materiality >= 3 AND created_at >= ?", (since,))),
              "trial_changes": len(run_query("SELECT 1 FROM events WHERE event_type='trial_change' AND event_date = ?", (today,))),
              "catalysts": len(get_upcoming_catalysts(120)), "danger": int((screens["runway_flag"] == "DANGER").sum())}
@@ -212,7 +282,7 @@ def build_brief(health=None, skip_claude=False, tickers=None):
              "", "## 2. Material changes (last 24h)", section_events(since),
              "", "## 3. Trial registry changes", section_trial_changes(today),
              "", "## 4. Upcoming catalysts (next 120 days)", section_catalysts(),
-             "", "## 5. Watchlist ranking", section_watchlist(ranked),
+             "", "## 5. Watchlist ranking", section_watchlist(ranked, previous),
              "", "## 6. Financing and dilution watch", section_financing(screens),
              "", "## 7. New memos", section_memos(today),
              "", "## 8. Paper portfolio and performance vs XBI", build_performance_text(),

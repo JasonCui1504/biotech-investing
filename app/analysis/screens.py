@@ -201,7 +201,22 @@ def get_upcoming_catalysts(days_ahead=120):
 SCREEN_COLUMNS = [
     "ticker", "cash_m", "burn_per_qtr_m", "runway_months", "market_cap_m", "ev_to_cash", "dilution_1y_pct",
     "dilution_3y_pct", "pct_off_high", "return_30d", "return_90d", "volatility_30d", "runway_flag",
-    "catalyst_in_window", "ev_cash_flag"]
+    "catalyst_in_window", "catalyst_weight", "ev_cash_flag"]
+
+# How much an upcoming catalyst should count: big binary events and firm dates count most,
+# vague "sometime this year" phase starts count least. Result is 0..1 (best catalyst per ticker).
+CATALYST_TYPE_WEIGHT = {"pdufa": 1.0, "topline_data": 1.0, "trial_primary_completion": 0.7, "phase_start": 0.4}
+CATALYST_PRECISION_WEIGHT = {"exact": 1.0, "month": 0.9, "quarter": 0.7, "half": 0.4, "year": 0.25}
+
+
+def catalyst_weights(catalysts):
+    """Best catalyst weight (0..1) per ticker from a get_upcoming_catalysts frame."""
+    best = {}
+    for r in catalysts.to_dict("records"):
+        weight = (CATALYST_TYPE_WEIGHT.get(r["type"], 0.6)
+                  * CATALYST_PRECISION_WEIGHT.get(r["date_precision"], 0.25))
+        best[r["ticker"]] = max(best.get(r["ticker"], 0.0), weight)
+    return best
 
 
 def run_screens(tickers=None):
@@ -210,7 +225,8 @@ def run_screens(tickers=None):
     if tickers is None:
         tickers = [r["ticker"] for r in run_query(
             "SELECT ticker FROM companies WHERE in_universe = 1 ORDER BY ticker")]
-    catalyst_tickers = set(get_upcoming_catalysts()["ticker"])
+    catalyst_weight = catalyst_weights(get_upcoming_catalysts())
+    catalyst_tickers = set(catalyst_weight)
     records = []
     for ticker in tickers:
         runway = get_runway_months(ticker)
@@ -226,6 +242,7 @@ def run_screens(tickers=None):
             "return_90d": context.get("return_90d"), "volatility_30d": context.get("volatility_30d"),
             "runway_flag": runway_flag(runway, config),
             "catalyst_in_window": ticker in catalyst_tickers,
+            "catalyst_weight": catalyst_weight.get(ticker, 0.0),
             "ev_cash_flag": ev_cash is not None and ev_cash < 1.5,
         })
     return pd.DataFrame(records, columns=SCREEN_COLUMNS)
