@@ -109,6 +109,19 @@ Windows: Task Scheduler -> Create Task -> trigger daily -> action: start program
 `C:\path\.venv\Scripts\python.exe` with arguments `-m app.run_daily` and "Start in" your project folder.
 Run it on a computer that stays on and keeps `data/` between runs; a temporary cloud container will not.
 
+## Pausing (indefinitely)
+
+```
+python -m app.pause "away until November"   # pause; scheduled runs now do nothing
+python -m app.pause --status                # is it paused?
+python -m app.pause --resume                # carry on
+```
+
+While the `PAUSED` file exists, `python -m app.run_daily` exits at once: nothing is fetched, Claude is not called and no
+email is sent, so cron or Task Scheduler can stay set up. `touch PAUSED` and `rm PAUSED` do the same by hand. A manual
+run can override it with `python -m app.run_daily --force`. To stop the schedule itself, remove the line with
+`crontab -e` (or disable the task in Task Scheduler).
+
 ## Known limitations
 
 - **Registry dates are stale.** ClinicalTrials.gov dates are sponsor-entered estimates; changes are signals to investigate, not facts.

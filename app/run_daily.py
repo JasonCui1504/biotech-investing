@@ -5,6 +5,7 @@ Run:  python -m app.run_daily                   full run
       python -m app.run_daily --tickers ACAD,ABUS
       python -m app.run_daily --smoke-test      3 tickers only (ACAD, ABUS, KRYS)
       python -m app.run_daily --dry-run         list the steps without running them
+Paused (python -m app.pause): the run exits at once with no fetching, no Claude calls and no email; add --force to override.
 Universe refresh is a separate monthly command: python -m app.ingest.universe --refresh
 Scheduling (cron/Task Scheduler) is described in the README; nothing is scheduled automatically.
 """
@@ -15,6 +16,7 @@ from datetime import date
 
 from app.config import load_config, project_path, setup_logging
 from app.db import create_tables, run_query
+from app.pause import describe, is_paused
 
 log = logging.getLogger(__name__)
 
@@ -213,7 +215,13 @@ if __name__ == "__main__":
     parser.add_argument("--tickers", help="comma-separated tickers to limit the run")
     parser.add_argument("--smoke-test", action="store_true", help="run on 3 tickers only")
     parser.add_argument("--dry-run", action="store_true", help="list steps without running them")
+    parser.add_argument("--force", action="store_true", help="run even though the pause is on")
     args = parser.parse_args()
+    if is_paused() and not args.force and not args.dry_run:
+        # First thing, before logging or the database: a paused run must not fetch, spend or email anything.
+        print(f"Paused: {describe()}")
+        print("Nothing was fetched, no Claude calls were made, and no email was sent. Use --force to override once.")
+        raise SystemExit(0)
     setup_logging(project_path(f"logs/run_{date.today().isoformat()}.log"))
     ticker_list = SMOKE_TEST_TICKERS if args.smoke_test else (args.tickers.split(",") if args.tickers else None)
     result = run_all(ticker_list, args.skip_claude, args.dry_run)

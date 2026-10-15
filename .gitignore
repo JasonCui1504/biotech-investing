@@ -12,3 +12,4 @@ data/*.db-journal
 data/*.db-wal
 data/*.db-shm
 data/alias_review.csv
+PAUSED
